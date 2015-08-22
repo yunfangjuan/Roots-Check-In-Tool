@@ -8,8 +8,8 @@ window.TRANSITION_LENGTH = 2 * 60 * 1000;
 // TODO:  add images for all locations, with keys that are the name of the location
 window.LOCATION_IMAGES = {
   'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
-  'maker center': '<i class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
-  'ipad center': '<i class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
+  'maker center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
+  'ipad center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
   'writing center':'<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/ink-splash-orange-hi.png">',
   'flex center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/red.png">',
   'ash': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-a.png">',
@@ -36,6 +36,7 @@ window.ACTIVITY_IMAGES = {
 // Images for event creator
 window.CREATOR_IMAGES = {
 	'Jill Carty': '<img src="/img/jill-image.jpg" class="creator-image">'
+/*	'Roots Elementary':
 	'Anna Stringfield':
 	'Leksy Wolk':
 	'Mackenzie Wagner':
@@ -48,7 +49,7 @@ window.CREATOR_IMAGES = {
 	'Mahdyeh Nowkhandan':
 	'Debbie Van Roy':
 	'Dominic Hernandez':
-	'Idali Franco':
+	'Idali Franco':*/
 }
 
 // The list of all possible grove calendar activities
