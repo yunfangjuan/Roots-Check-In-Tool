@@ -159,6 +159,10 @@ button {
 	border:none;
 }
 
+.text-primary{
+	white-space:nowrap;
+}
+
 .panel-body {
    padding: 10px;
 }
