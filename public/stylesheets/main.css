@@ -192,8 +192,8 @@ button {
 }
 
 
-.activity-image img {
-	width:180px;
+.activity-image {
+	width:40%;
 }
 
 /* Grove calendar display */
