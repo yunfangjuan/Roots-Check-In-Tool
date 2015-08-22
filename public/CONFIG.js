@@ -24,18 +24,31 @@ window.LOCATION_IMAGES = {
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
 window.ACTIVITY_IMAGES = {
-  'blocks': '<img class="activity-image" src="/img/blocks.png">',
-  'level reading': '<i class="activity-image fa fa-pencil fa-4x">',
-  'razkids': '<i class="activity-image fa fa-star fa-4x">',
-  'st math': '<i class="activity-image fa fa-plus-square fa-4x">',
-  'coloring': '<img class="activity-image" src="/img/crayon_green.png">',
-  'mask': '<img class="activity-image" src="/img/masks.png">'
+  'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.pn">',
+  'reading': '<i class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
+  'writing': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">',
+  'science': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">',
+  'dance': '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">',
+  
 
 };
 
 // Images for event creator
 window.CREATOR_IMAGES = {
-	'Roots Elementary': '<img src="/img/jill-image.jpg" class="creator-image">'
+	'Jill Carty': '<img src="/img/jill-image.jpg" class="creator-image">'
+	'Anna Stringfield':
+	'Leksy Wolk':
+	'Mackenzie Wagner':
+	'Julia Quintanilla':
+	'Eve Bunevich': 
+	'Jonathan Hanover':
+	'Martin Cech':
+	'Megan Miles':
+	'Samantha Gambino':
+	'Mahdyeh Nowkhandan':
+	'Debbie Van Roy':
+	'Dominic Hernandez':
+	'Idali Franco':
 }
 
 // The list of all possible grove calendar activities
