@@ -79,10 +79,10 @@ StudentLocationDisplay.prototype.updateDisplay = function() {
 		// Time of the scan, if we want to display this information
 		// var time = this.recentScan ? moment(this.recentScan.time).fromNow() : '';
 
-		var info = $('<p>').addClass('last-scan-info').addClass('text-danger').text(this.currentLocation);
+	//	var info = $('<p>').addClass('last-scan-info').addClass('text-danger').text(this.currentLocation);
 		var correction = $('<p>').addClass('text-primary').addClass('correct-location-info').text(this.recentScan.event[0].location);
 
-		this.el.find('.studentInfoContainer').empty().append(info, correction);
+		this.el.find('.studentInfoContainer').empty().append(correction);
 	}
 	// If the student has not scanned in recently, do not display the last scan information
 	else {
