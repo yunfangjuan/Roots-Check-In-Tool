@@ -179,6 +179,11 @@ button {
         font-size: 12px;
 }
 
+.location-image {
+	width: 40% !important;
+}
+
+
 
 @media only screen (max-width:500px) {
 	.Lost {
@@ -186,9 +191,6 @@ button {
 	}
 }
 
-.location-image img {
-	width: 40% !important;
-}
 
 .activity-image img {
 	width:180px;
