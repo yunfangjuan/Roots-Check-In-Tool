@@ -43,7 +43,7 @@ renderLocationImage = function(eventLocation, eventActivity, eventCreator, focus
 
   if (eventCreator) {
     $('#creatorImage').append( CREATOR_IMAGES[eventCreator] );
-    $('#creatorText').append(eventCreator);
+ //   $('#creatorText').append(eventCreator);
   } else if (focusArea) {
     $('#creatorImage').append( FOCUS_AREAS[focusArea] );
     $('#creatorText').append(focusArea);
