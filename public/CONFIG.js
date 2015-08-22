@@ -54,9 +54,9 @@ window.CREATOR_IMAGES = {
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
-	'Library': ['Level Reading', 'Buddy Reading'],
-	'Maker Space': ['Blocks', 'Legos'],
-	'Tablets': ['ST Math', 'RazKids']
+	'Library Center': ['Level Reading', 'Buddy Reading'],
+	'Maker Center': ['Blocks', 'Legos'],
+	'iPad Center': ['ST Math', 'RazKids']
 };
 
 // The list of all possible Focus Areas, and their associated pictures
