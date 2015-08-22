@@ -7,12 +7,18 @@ window.TRANSITION_LENGTH = 2 * 60 * 1000;
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
 window.LOCATION_IMAGES = {
-  'library': '<img class="location-image" src="/img/blue-triangle.png" style="width:70px">',
-  'maker space': '<i class="location-image fa fa-car fa-4x">',
-  'tablets': '<i class="location-image fa fa-tablet fa-4x">',
-  'red station':'<img class="location-image" src="/img/x.png">',
-  'blue station': '<img class="location-image" src="/img/circle.png">',
-  'green station': '<img class="location-image" src="/img/triangle.png">'
+  'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
+  'maker center': '<i class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
+  'ipad center': '<i class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
+  'writing center':'<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/ink-splash-orange-hi.png">',
+  'flex center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/red.png">',
+  'ash': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-a.png">',
+  'birch': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-b.png">',
+  'cherry': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-c.png">',
+  'dahlia': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-d.png">',
+  'elm': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-e.png">',
+  'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
+  'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
 };
 
 // Images for the various activity / descriptions
