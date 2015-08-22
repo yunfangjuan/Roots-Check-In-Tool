@@ -80,82 +80,104 @@ button {
 }
 
 
-/*STUDENT TRACKER STYLES*/
 .student-tracker-title {
 	margin:auto;
 	text-align: center;
 	width:100%;
-	margin-bottom:10px;
-	margin-top:10px;
+	margin-bottom:50px;
+	margin-top:50px;
 }
 
-.Lost {
-	border:#ED0802 solid 3px;
-	width:20%;
+.Found {
+	background-color: rgba(137, 171, 66, 0.26);
+	width:18%;
+	height: 200px;
 	text-align:center;
 	margin:7px;
 	border-radius:7px;
 	padding:7px;
 	color:#484848;
-}
+	float: left;
 
-.Lost img {
-	text-align:center;
-	margin:auto;
-}
 
-.Found {
-	border:#8BAB42 solid 3px;
-	width:20%;
+}
+.Lost {
+	background-color: rgba(137, 171, 66, 0.26);
+	width:18%;
+	height: 200px;
 	text-align:center;
 	margin:7px;
 	border-radius:7px;
 	padding:7px;
+	color:#484848;
+	float: left;
 }
 
-.Found img {
+.Lost img {
+	border: #ED0802 solid 3px;
+}
+
+
+.studentImage {
 	text-align:center;
+	display:block;
+	width:80px;
+	height: auto;
+	position:absolute;
+	top: 55px;
+	left:15%;
 	margin:auto;
 }
 
-.studentLocationDisplay {
-	display:inline-block;
-	width: 18%;
-}
-
-#WrongLocation {
-	width:100%;
-	text-align:center;
-	margin:auto;
+.wrongLocation {
+	color:red;
 }
 
 .name {
-	font-size:16px;
+	font-size:12px;
+	font-size: 2vw;
 	font-weight: bold;
 	margin-bottom:15px;
 }
 
 .nameImageContainer {
 	margin-bottom:15px;
+	width: 100%;
+	height:20px;
+	position: relative;
 }
 
 .collapse.in {
 	background-color: #fff;
+
+
 }
 
 .panel {
 	border:none;
 }
 
-@media only screen (max-width:480px) {
-	.Lost {
-		width:90%;
-	}
+.panel-body {
+   padding: 10px;
 }
 
-.studentImage {
-	width:80px;
-	height:auto;
+.last-scan-info {
+   position: relative;
+   font-size: 12px;
+
+}
+
+.correct-location-info{
+	position: relative;
+	top:105px;
+        font-size: 12px;
+}
+
+
+@media only screen (max-width:500px) {
+	.Lost {
+		width:20%;
+	}
 }
 
 .location-image img {
