@@ -81,7 +81,7 @@ button {
 
 .studentLocationDisplay{
 	width:15%;
-	height: 200px;
+	height: 200px !important;
 }
 
 
