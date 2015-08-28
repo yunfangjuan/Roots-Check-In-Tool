@@ -76,7 +76,7 @@ window.GET_ACTIVITY = function(description) {
 	if (description.match('read')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
-/*	else if (description.match('math')) {
+	else if (description.match('math')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">';
 	}
 	else if (description.match('dance')) {
@@ -85,12 +85,15 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('science')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
 	}
-	else if (description.match('writing')) {
+	else if (description.match('writ')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
 	}
 	else if (description.match('morning circle')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Healthcare/groups-64.png"">'
-	}*/
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Healthcare/groups-64.png">';
+	}
+	else if (description.match('text')) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
+	}
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
  		if(description.match(activity)) {
