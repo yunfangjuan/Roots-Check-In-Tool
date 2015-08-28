@@ -74,7 +74,7 @@ window.GET_ACTIVITY = function(description) {
 
 	// If 'read' shows up in description
 	if (description.match('read')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
+		return '<i class="activity-image fa fa-book fa-4x">';
 	}
 /*	else if (description.match('math')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">';
