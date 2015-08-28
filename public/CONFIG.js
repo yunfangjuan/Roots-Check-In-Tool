@@ -18,8 +18,8 @@ window.LOCATION_IMAGES = {
   'dahlia': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-d.png">',
   'elm': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-e.png">',
   'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
-  'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
-  'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355.jpg">'
+  'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355.jpg">',
+  'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
 };
 
 // Images for the various activity / descriptions
