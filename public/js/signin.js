@@ -8,7 +8,7 @@ renderProgressBar = function(eventStart){
     start_time: currentTime, //Time when the progress bar is at 0%
     end_time: eventStart || currentTime.add(1, ms), //Time Progress bar is at 100% and timer runs out, when no eventStart is passed for end_time, use current time with 1 added ms to trigger onComplete and update_progress
     progress: $('.progress-bar'), //There dom element which should display the progressbar.
-    onComplete: function() {
+    onComplete: function() {lo
       $('.timer').show();
       $('.timer').replaceWith("<div class=\"timer ended\">Time's Up!</div>");
     },
@@ -33,7 +33,7 @@ renderLocationImage = function(eventLocation, eventActivity, eventCreator, focus
   $('#locationText').append(eventLocation);
 
   // Check if the event activity has an icon, otherwise it is a description and use GET_ACTIVITY
-  if (ACTIVITY_IMAGES[eventActivity.toLowerCase()]) {
+  if (ACTIVITY_IMAGES[eventActivity]) {
     $('#activityImage').append( ACTIVITY_IMAGES[eventActivity.toLowerCase()] );
   } else {
     $('#activityImage').append( GET_ACTIVITY(eventActivity) );
