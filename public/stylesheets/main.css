@@ -46,6 +46,12 @@ button {
 	display: block;
 }
 
+.creator-image{
+	width:80%;
+	height:auto;
+	
+};
+
 .timer {
 	display: none;
 }
