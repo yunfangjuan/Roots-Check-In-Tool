@@ -94,6 +94,5 @@ window.GET_ACTIVITY = function(description) {
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
 		if(description.match(activity)) {
-			return ACTIVITY_IMAGES[activity];
-		}});
+			return ACTIVITY_IMAGES[activity]}});
 
