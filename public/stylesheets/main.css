@@ -1,5 +1,5 @@
 .countDown {
-	display:none;
+	display:none !important;
 	max-width: 90%;
 	margin: auto;
 }
