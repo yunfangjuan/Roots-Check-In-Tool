@@ -62,12 +62,12 @@ button {
 
 .timer {
 	display: none !important;
-}
+};
 
 #groveCalendar {
 	text-align: center;
 	margin: auto;
-}
+};
 
 /*whoops styles*/
 
