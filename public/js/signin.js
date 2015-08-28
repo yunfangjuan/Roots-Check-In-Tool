@@ -33,7 +33,7 @@ renderLocationImage = function(eventLocation, eventActivity, eventCreator, focus
   $('#locationText').append(eventLocation);
 
   // Check if the event activity has an icon, otherwise it is a description and use GET_ACTIVITY
-  if (ACTIVITY_IMAGES[eventActivity]) {
+  if (ACTIVITY_IMAGES[eventActivity.toLowerCase()]) {
     $('#activityImage').append( ACTIVITY_IMAGES[eventActivity.toLowerCase()] );
   } else {
     $('#activityImage').append( GET_ACTIVITY(eventActivity) );
