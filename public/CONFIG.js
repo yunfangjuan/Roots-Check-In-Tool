@@ -25,7 +25,7 @@ window.LOCATION_IMAGES = {
 // TODO: add images for all activities, with keys that are the name of the activity
 window.ACTIVITY_IMAGES = {
   'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">',
-  'Blocks': '<i class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
+  'reading': '<i class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
   'writing': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">',
   'science': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">',
   'dance': '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">',
@@ -74,9 +74,23 @@ window.GET_ACTIVITY = function(description) {
 
 	// If 'read' shows up in description
 	if (description.match('read')) {
-		return '<i class="activity-image fa fa-book fa-4x">';
+		return '<i class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
-	
+	else if (description.match('math') {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">';
+	}
+	else if (description.match('dance') {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">';
+	}
+	else if (description.match('science') {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
+	}
+	else if (description.match('writing') {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
+	}
+	else if (description.match('morning circle') {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Healthcare/groups-64.png"">'
+	}
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
 		if(description.match(activity)) {
