@@ -50,6 +50,10 @@ button {
 	display:block;
 }
 
+.creatorImage{
+	display:block;
+}
+
 .creator-image{
 	width:50%;
 	height:auto;
