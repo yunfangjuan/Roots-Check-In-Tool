@@ -95,6 +95,5 @@ window.GET_ACTIVITY = function(description) {
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
 		if(description.match(activity)) {
 			return ACTIVITY_IMAGES[activity];
-	
-	});
-}
+		}});
+
