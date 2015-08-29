@@ -94,12 +94,23 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('writ')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
 	}
-	else if (description.match('morning circle')) {
+	else if (description.match('circle')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Healthcare/groups-64.png">';
 	}
 	else if (description.match('text')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
 	}
+	else if (description.match('breakfast')) {
+		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-apple.png">';
+	}
+	else if (description.match('lunch')) {
+		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/school-lunch-clip-art-77151.jpg">';
+	}
+	else if (description.match('recess')) {
+		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/February-Recess.jpg">';
+	}
+
+	
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
  		if(description.match(activity)) {
