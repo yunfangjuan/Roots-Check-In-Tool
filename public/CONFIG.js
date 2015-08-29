@@ -18,7 +18,7 @@ window.LOCATION_IMAGES = {
   'dahlia': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-d.png">',
   'elm': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-e.png">',
   'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
-  'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355-e1440797631148.jpg">',
+  'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355-e1440863046317.jpg">',
   'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
 };
 
@@ -37,7 +37,6 @@ window.ACTIVITY_IMAGES = {
 // Images for event creator
 window.CREATOR_IMAGES = {
 	'Jill Carty': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/jill.jpg" class="creator-image">',
-/*	'Roots Elementary':
 	'Anna Stringfield': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/anna.jpg" class="creator-image">',
 	'Leksy Wolk': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/leksy.jpg" class="creator-image">',
 	'Mackenzie Wagner': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mackenzie.jpg" class="creator-image">',
@@ -50,7 +49,7 @@ window.CREATOR_IMAGES = {
 	'Mahdyeh Nowkhandan': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mahdyeh.jpg" class="creator-image">',
 	'Debbie Van Roy': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/debbie.jpg" class="creator-image">',
 	'Dominic Hernandez': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/dominic.jpg" class="creator-image">',
-	'Idali Franco': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/idali.jpg" class="creator-image">'*/
+	'Idali Franco': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/idali.jpg" class="creator-image">'
 }
 
 // The list of all possible grove calendar activities
