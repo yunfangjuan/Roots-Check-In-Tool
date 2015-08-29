@@ -109,6 +109,9 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('recess')) {
 		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/February-Recess.jpg">';
 	}
+	else if (description.match('ipad')) {
+		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/pda-clipart-tablet-computer-clipart-l_001.png">';
+	}
 
 	
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
