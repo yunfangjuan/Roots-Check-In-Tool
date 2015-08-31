@@ -131,7 +131,7 @@ function getCalendar(userData){
           var a = currentTime;
           var b = moment(event.start);
           var difference = b.diff(a, 'minutes');
-          return (difference <= 5 && difference > 0);
+          return (difference <= 10 && difference > 0);
         });
 
         // Check to see if there's an event currently happening that the student is late for or is checking into the app before the event is done
