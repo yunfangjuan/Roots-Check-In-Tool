@@ -141,8 +141,7 @@ function getCalendar(userData){
 
         window.eventData = {
           currentEvent: currentEvent,
-          nextEvent: nextEvent,
-          difference: difference
+          nextEvent: nextEvent
         };
 
         //if a current event is found, show location, teacher, and activity. 
