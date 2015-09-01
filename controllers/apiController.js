@@ -8,7 +8,9 @@ function getCurrentEvent(user, scanned_data) {
 	//find event in collection so that we are after start time minus transition length
 	var currentEvent = _.find(user.calendar, function(event) {
 		var transition = Number(process.env.TRANSITION_LENGTH) || 5 * 60 * 1000;
-		return moment( new Date() ).isBetween( event.start - transition, event.end - transition );
+		var start = moment( event.start ).subtract(transition, 'ms');
+		var end = moment( event.end ).subtract(transition, 'ms' );
+		return moment( new Date() ).isBetween( start, end );
 	});
 
 	// if there's not a current google calendar event, get the next grove calendar event, and if the scan matches the correct event, change the calendar to indicate that the student has checked in

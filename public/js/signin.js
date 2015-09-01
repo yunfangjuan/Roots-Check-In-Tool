@@ -126,17 +126,19 @@ function getCalendar(userData){
           contentType: 'application/json'
         });
         
-        //loop through all events to find one that is no more than EVENT_LENGTH away
+        /* loop through all events to find one that is no more than TRANSITION_LENGTH away,
+        e.g. if it is 9:52 right now, an event that starts at 9:55 would be next, but an event that starts at 10:00 would not, if 5 min transition time */
         var nextEvent = _.find(events, function(event){
           var a = currentTime;
           var b = moment(event.start);
           var difference = b.diff(a, 'ms');
-          return (difference <= EVENT_LENGTH && difference > 0);
+          return (difference <= TRANSITION_LENGTH && difference > 0);
         });
 
         // Check to see if there's an event currently happening that the student is late for or is checking into the app before the event is done
         var currentEvent = _.find(events, function(event) {
-          return currentTime.isBetween(event.start, event.end - TRANSITION_LENGTH);
+          var end = moment( event.end ).subtract(TRANSITION_LENGTH, 'ms' );
+          return currentTime.isBetween(event.start, end );
         });
 
         window.eventData = {
@@ -173,8 +175,8 @@ function getCalendar(userData){
           }
           // Event starts at the first start time after this check-in period
           var event_start = _.find(start_times, function(t) {
-            return currentTime.isBetween( t, t.add( EVENT_LENGTH ) );
-          }).add(TRANSITION_LENGTH);
+            return currentTime.isBetween( t, t.add( EVENT_LENGTH, 'ms' ) );
+          }).add(TRANSITION_LENGTH, 'ms');
 
           // Now render the progress bar and grove calendar with 1 event
           renderProgressBar( event_start);
