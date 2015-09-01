@@ -1,5 +1,5 @@
 // Set the event length. 10 minutes * 60 seconds * 1000 ms. 
-window.EVENT_LENGTH = 10 * 60 * 1000;
+window.EVENT_LENGTH = 15 * 60 * 1000;
 
 // Transition time between events. 5 minutes * 60s * 1000 ms.
 window.TRANSITION_LENGTH = 5 * 60 * 1000;

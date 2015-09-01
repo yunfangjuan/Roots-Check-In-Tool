@@ -126,17 +126,17 @@ function getCalendar(userData){
           contentType: 'application/json'
         });
         
-        //loop through all events to find one that is 10 minutes away
+        //loop through all events to find one that is no more than EVENT_LENGTH away
         var nextEvent = _.find(events, function(event){
           var a = currentTime;
           var b = moment(event.start);
-          var difference = b.diff(a, 'minutes');
-          return (difference <= 10 && difference > 0);
+          var difference = b.diff(a, 'ms');
+          return (difference <= EVENT_LENGTH && difference > 0);
         });
 
         // Check to see if there's an event currently happening that the student is late for or is checking into the app before the event is done
         var currentEvent = _.find(events, function(event) {
-          return moment(currentTime).isBetween(event.start, event.end);
+          return currentTime.isBetween(event.start, event.end - TRANSITION_LENGTH);
         });
 
         window.eventData = {
@@ -162,18 +162,22 @@ function getCalendar(userData){
         }
         // If nothing came back from the google calendar, render the next grove calendar event
         else {
-          // Get the next start time based on clock and EVENT_LENGTH
+          /* Split the hour based on EVENT_LENGTH and TRANSITION_LENGTH
+          e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
+          be the period during which we would show a student that an event
+          is starting at 9:00 */
           var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
           var start_times = [];
           for (var i =0; i < intervals; i++) {
-            start_times.push(moment().startOf('hour').add(i * EVENT_LENGTH, 'ms'));
+            start_times.push(moment().startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
           }
-          // Event starts at the first start time after this check-in
+          // Event starts at the first start time after this check-in period
           var event_start = _.find(start_times, function(t) {
-            return t.isAfter(moment());
-          });
+            return currentTime.isBetween( t, t.add( EVENT_LENGTH ) );
+          }).add(TRANSITION_LENGTH);
 
-          renderProgressBar(event_start);
+          // Now render the progress bar and grove calendar with 1 event
+          renderProgressBar( event_start);
           renderGroveCalendar(1, userData);
         }
   });
