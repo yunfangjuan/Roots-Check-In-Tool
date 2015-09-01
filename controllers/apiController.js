@@ -7,8 +7,8 @@ var moment = require('moment');
 function getCurrentEvent(user, scanned_data) {
 	//find event in collection so that we are after start time minus transition length
 	var currentEvent = _.find(user.calendar, function(event) {
-		var transition = Number(process.env.TRANSITION_LENGTH) || 5 * 60 * 1000;
-		var start = moment( event.start ).subtract(transition, 'ms');
+		var transition = Number(process.env.TRANSITION_LENGTH) || 5;
+		var start = moment( event.start ).subtract(transition * 60 * 1000, 'ms');
 		var end = moment( event.end ).subtract(transition, 'ms' );
 		return moment( new Date() ).isBetween( start, end );
 	});
