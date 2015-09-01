@@ -9,7 +9,7 @@ function getCurrentEvent(user, scanned_data) {
 	var currentEvent = _.find(user.calendar, function(event) {
 		var transition = Number(process.env.TRANSITION_LENGTH) || 5;
 		var start = moment( event.start ).subtract(transition * 60 * 1000, 'ms');
-		var end = moment( event.end ).subtract(transition, 'ms' );
+		var end = moment( event.end ).subtract(transition * 60 * 1000, 'ms' );
 		return moment( new Date() ).isBetween( start, end );
 	});
 
