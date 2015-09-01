@@ -1,15 +1,14 @@
-var https = require('https');
 var Scan = require('../models/Scan');
 var User = require('../models/user');
 var _ = require('lodash');
 var moment = require('moment');
-var async = require('async');
 
 // Helper function to get the current event for a student
 function getCurrentEvent(user, scanned_data) {
-	//find event in collection that is between event start time minus 5 min and event end time
+	//find event in collection so that we are after start time minus transition length
 	var currentEvent = _.find(user.calendar, function(event) {
-		return moment().isBetween(moment(event.start).subtract(5, 'minutes'), event.end);
+		var transition = Number(process.env.TRANSITION_LENGTH) || 5 * 60 * 1000;
+		return moment( new Date() ).isBetween( event.start - transition, event.end - transition );
 	});
 
 	// if there's not a current google calendar event, get the next grove calendar event, and if the scan matches the correct event, change the calendar to indicate that the student has checked in
