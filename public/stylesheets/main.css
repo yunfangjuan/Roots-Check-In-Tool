@@ -42,7 +42,7 @@ button {
 }
 
 iframe[src^="https://accounts.google.com"] {
-  display: none;
+  display: none !important;
 }
 
 .locationImage {
