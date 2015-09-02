@@ -41,8 +41,9 @@ button {
 	margin-bottom: 3%;
 }
 
-iframe[src^='https://accounts'] {
-  display: none !important;
+iframe[src^="https://apis.google.com"] {
+	display: none;
+	
 }
 
 .locationImage {
