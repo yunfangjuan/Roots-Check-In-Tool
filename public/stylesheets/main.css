@@ -41,7 +41,7 @@ button {
 	margin-bottom: 3%;
 }
 
-iframe[src^="https://accounts.google.com"] {
+iframe[src^='https://accounts'] {
   display: none !important;
 }
 
