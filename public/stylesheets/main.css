@@ -41,7 +41,7 @@ button {
 	margin-bottom: 3%;
 }
 
-.iframe[src^="https://apis.google.com"] {
+.iframe[src^="https://accounts.google.com"] {
   display: none;
 }
 
