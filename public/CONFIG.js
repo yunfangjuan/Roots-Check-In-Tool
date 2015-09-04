@@ -6,8 +6,13 @@ window.TRANSITION_LENGTH = 10 * 60 * 1000;
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
-window.LOCATION_IMAGES = {
-  'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
+window.LOCATION_IMAGES = function(location) {
+	location = location.toLowerCase();
+	
+	if (location.match('library')) {
+		return '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">';
+	}}
+/*  'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
   'maker center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
   'ipad center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
   'writing center':'<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/ink-splash-orange-hi.png">',
@@ -20,7 +25,7 @@ window.LOCATION_IMAGES = {
   'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
   'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355-e1440863046317.jpg">',
   'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
-};
+};*/
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
@@ -43,7 +48,7 @@ window.CREATOR_IMAGES = {
 	'Julia Quintanilla': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/julia.jpg" class="creator-image">',
 	'Eve Bunevich': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/eve.jpg" class="creator-image">',
 	'Jonathan Hanover': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/jon.jpg" class="creator-image">',
-	'Martin Cech': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/marty.jpg" class="creator-image">',
+	'Marty Cech': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/marty.jpg" class="creator-image">',
 	'Megan Miles': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/megan.jpg" class="creator-image">',
 	'Samantha Gambino': '<img src="http://rootselementary.org/wp-content/uploads/2014/12/image1-2-300x300.jpg" class="creator-image">',
 	'Mahdyeh Nowkhandan': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mahdyeh.jpg" class="creator-image">',
