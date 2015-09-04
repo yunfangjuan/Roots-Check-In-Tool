@@ -6,13 +6,9 @@ window.TRANSITION_LENGTH = 10 * 60 * 1000;
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
-window.LOCATION_IMAGES = function(location) {
-	location = location.toLowerCase();
-	
-	if (location.match('library')) {
-		return '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">';
-	}}
-/*  'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
+window.LOCATION_IMAGES {
+
+  'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
   'maker center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
   'ipad center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
   'writing center':'<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/ink-splash-orange-hi.png">',
@@ -25,7 +21,7 @@ window.LOCATION_IMAGES = function(location) {
   'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
   'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355-e1440863046317.jpg">',
   'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
-};*/
+};
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
