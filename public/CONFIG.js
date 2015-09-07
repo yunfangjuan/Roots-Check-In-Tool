@@ -56,7 +56,7 @@ window.CREATOR_IMAGES = {
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
-	'Writing Center':['Writer Workshop'],
+	'Writing Center':["Writer's Workshop"],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', 'RazKids']
 };
