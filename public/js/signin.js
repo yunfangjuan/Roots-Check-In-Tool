@@ -1,9 +1,3 @@
-// Set the event length. 15 minutes * 60 seconds * 1000 ms. 
-var EVENT_LENGTH = 15 * 60 * 1000;
-
-// Transition time between events. 5 minutes * 60s * 1000 ms.
-var TRANSITION_LENGTH = 10 * 60 * 1000;
-
 // Renders the progress bar at the top of page, using the start time of the student's next (or current) event.
 renderProgressBar = function(eventStart){
   $('.countDown').show();
