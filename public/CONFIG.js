@@ -6,7 +6,7 @@ window.TRANSITION_LENGTH = 10 * 60 * 1000;
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
-window.LOCATION_IMAGES {
+window.LOCATION_IMAGES= {
 
   'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
   'maker center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
