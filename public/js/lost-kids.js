@@ -30,7 +30,7 @@ var StudentLocationDisplay = function(student) {
 			recent = true;
 		}
 		// If grove calendar, check against length of events
-		else if (event && !event.end && moment(scan.time).add(TRANSITION_LENGTH + EVENT_LENGTH, 'ms').isAfter(moment())) {
+		else if (event && !event.end && moment(scan.time).add(EVENT_LENGTH - TRANSITION_LENGTH, 'ms').isAfter(moment())) {
 			recent = true;
 		}
 
@@ -84,7 +84,7 @@ StudentLocationDisplay.prototype.updateDisplay = function() {
 
 		this.el.find('.studentInfoContainer').empty().append(info, correction);
 	}
-	// If the student has not scanned in recently, do not display the last scan information
+	// If the student is lost, do not display the last scan information
 	else {
 		var self = this;
 
@@ -246,7 +246,7 @@ $(function(){
 			return new StudentLocationDisplay(student);
 		});
 
-		// Put in a slight display for student panels to display, then set them all to same height
+		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
 			var displays = $('.studentLocationDisplay');
