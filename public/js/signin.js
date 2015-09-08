@@ -1,29 +1,33 @@
 // Renders the progress bar at the top of page, using the start time of the student's next (or current) event.
 renderProgressBar = function(eventStart){
+
   $('.countDown').show();
+  var currentTime = moment( new Date() );
 
-  var currentTime = moment();
+  if (eventStart && currentTime.isAfter( eventStart ) ) {
+    return null;
+  } else {
+    $('.timer').countdown({  
+      start_time: currentTime, //Time when the progress bar is at 0%
+      end_time: eventStart || currentTime.add(1, ms), //Time Progress bar is at 100% and timer runs out, when no eventStart is passed for end_time, use current time with 1 added ms to trigger onComplete and update_progress
+      progress: $('.progress-bar'), //There dom element which should display the progressbar.
+      onComplete: function() {
+        $('.timer').show();
+        $('.timer').replaceWith("<div class=\"timer ended\">Time's Up!</div>");
+      },
+      update_progress : function(progress, element){
+        if (Math.floor(progress) === 50) {
+          $(element).removeClass('progress-bar-success').addClass('progress-bar-warning');
+        } else if (Math.floor(progress) === 75) {
+          $(element).removeClass('progress-bar-warning').addClass('progress-bar-danger');
+        } 
 
-  $('.timer').countdown({  
-    start_time: currentTime, //Time when the progress bar is at 0%
-    end_time: eventStart || currentTime.add(1, ms), //Time Progress bar is at 100% and timer runs out, when no eventStart is passed for end_time, use current time with 1 added ms to trigger onComplete and update_progress
-    progress: $('.progress-bar'), //There dom element which should display the progressbar.
-    onComplete: function() {
-      $('.timer').show();
-      $('.timer').replaceWith("<div class=\"timer ended\">Time's Up!</div>");
-    },
-    update_progress : function(progress, element){
-      if (Math.floor(progress) === 50) {
-        $(element).removeClass('progress-bar-success').addClass('progress-bar-warning');
-      } else if (Math.floor(progress) === 75) {
-        $(element).removeClass('progress-bar-warning').addClass('progress-bar-danger');
-      } 
-
-      element.attr('aria-valuenow', Math.floor(progress));//We set a custom attribute, 'area-valuenow' containing the progress
-      element.css('width', Math.floor(progress)+'%');//Fill the bar with percentage of progress
-      element.text(Math.floor(progress)+'%');//Put text notation of progress inside the progressbar
-    }
-  });
+        element.attr('aria-valuenow', Math.floor(progress));//We set a custom attribute, 'area-valuenow' containing the progress
+        element.css('width', Math.floor(progress)+'%');//Fill the bar with percentage of progress
+        element.text(Math.floor(progress)+'%');//Put text notation of progress inside the progressbar
+      }
+    });
+  }
 }
 
 // Render a location image
@@ -181,7 +185,7 @@ function getCalendar(userData){
           }).add(TRANSITION_LENGTH, 'ms');
 
           // Now render the progress bar and grove calendar with 1 event
-          renderProgressBar( event_start);
+          renderProgressBar( event_start );
           renderGroveCalendar(1, userData);
         }
   });
