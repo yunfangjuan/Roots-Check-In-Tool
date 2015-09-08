@@ -193,9 +193,14 @@ $(function(){
 
 	// Load the different button filters and divs
 	_.keys(LOCATION_IMAGES).forEach( function(location) {
-		var prettyDisplay = location.split(' ').map( function(word) {
-			return word[0].toUpperCase() + word.slice(1);
-		}).join(' ');
+		// Manual override for iPad Center to avoid sentence casing
+		if (location.toLowerCase() === 'ipad center') {
+			var prettyDisplay = 'iPad Center';
+		} else {
+			var prettyDisplay = location.split(' ').map( function(word) {
+				return word[0].toUpperCase() + word.slice(1);
+			}).join(' ');
+		}
 
 		// Create the button and add it to button group
 		var button = $('<button>').addClass('btn btn-info btn-block').text(prettyDisplay);
