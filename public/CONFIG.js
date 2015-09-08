@@ -18,7 +18,7 @@ window.LOCATION_IMAGES= {
   'cherry': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-c.png">',
   'dahlia': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-d.png">',
   'elm': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-e.png">',
-  'forest': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/blue-alphabet-letter-f.png">',
+  'forest': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/blue-alphabet-letter-f.png">',
   'holly': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/IMG_0355-e1440863046317.jpg">',
   'playground': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/playground.gif">'
 };
@@ -37,20 +37,20 @@ window.ACTIVITY_IMAGES = {
 
 // Images for event creator
 window.CREATOR_IMAGES = {
-	'Jill Carty': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/jill.jpg" class="creator-image">',
-	'Anna Stringfield': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/anna.jpg" class="creator-image">',
-	'Leksy Wolk': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/leksy.jpg" class="creator-image">',
-	'Mackenzie Wagner': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mackenzie.jpg" class="creator-image">',
-	'Julia Quintanilla': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/julia.jpg" class="creator-image">',
-	'Eve Bunevich': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/eve.jpg" class="creator-image">',
-	'Jonathan Hanover': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/jon.jpg" class="creator-image">',
-	'Marty Cech': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/marty.jpg" class="creator-image">',
-	'Megan Miles': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/megan.jpg" class="creator-image">',
+	'Jill Carty': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/jill.jpg" class="creator-image">',
+	'Anna Stringfield': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/anna.jpg" class="creator-image">',
+	'Leksy Wolk': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/leksy.jpg" class="creator-image">',
+	'Mackenzie Wagner': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mackenzie.jpg" class="creator-image">',
+	'Julia Quintanilla': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/julia.jpg" class="creator-image">',
+	'Eve Bunevich': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/eve.jpg" class="creator-image">',
+	'Jonathan Hanover': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/jon.jpg" class="creator-image">',
+	'Marty Cech': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/marty.jpg" class="creator-image">',
+	'Megan Miles': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/megan.jpg" class="creator-image">',
 	'Samantha Gambino': '<img src="http://rootselementary.org/wp-content/uploads/2014/12/image1-2-300x300.jpg" class="creator-image">',
-	'Mahdyeh Nowkhandan': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mahdyeh.jpg" class="creator-image">',
-	'Debbie Van Roy': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/debbie.jpg" class="creator-image">',
-	'Dominic Hernandez': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/dominic.jpg" class="creator-image">',
-	'Idali Franco': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/idali.jpg" class="creator-image">'
+	'Mahdyeh Nowkhandan': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mahdyeh.jpg" class="creator-image">',
+	'Debbie Van Roy': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/debbie.jpg" class="creator-image">',
+	'Dominic Hernandez': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
+	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">'
 }
 
 // The list of all possible grove calendar activities
