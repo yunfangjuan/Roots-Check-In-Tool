@@ -19,8 +19,10 @@ function getCurrentEvent(user, scanned_data) {
 			return !event.checkedIn; 
 		});
 
-		if (index > -1) {
+		if (index > -1 && user.groveCalendar && user.groveCalendar.length) {
 			currentEvent = user.groveCalendar[index];
+		} else {
+			currentEvent = null;
 		}
 	}
 
@@ -154,7 +156,7 @@ var apiController = {
 				console.error(err);
 				res.statu(500).send(err);
 			} else if (!user) {
-				res.send(new Error('User not found!'));
+				res.status(404).send(new Error('User not found!'));
 			} else {
 				res.send(user.groveCalendar);
 			}

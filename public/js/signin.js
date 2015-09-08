@@ -171,11 +171,13 @@ function getCalendar(userData){
           var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
           var start_times = [];
           for (var i =0; i < intervals; i++) {
-            start_times.push(currentTime.startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
+            // Remember to use new moment object here for each iteration so as not to override currentTime
+            start_times.push( moment( new Date() ).startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
           }
+
           // Event starts at the first start time after this check-in period
           var event_start = _.find(start_times, function(t) {
-            return currentTime.isBetween( t, t.add( EVENT_LENGTH, 'ms' ) );
+            return currentTime.isBetween( t, moment(t).add( EVENT_LENGTH, 'ms' ) );
           }).add(TRANSITION_LENGTH, 'ms');
 
           // Now render the progress bar and grove calendar with 1 event
