@@ -102,7 +102,7 @@ StudentLocationDisplay.prototype.updateDisplay = function() {
 };
 
 StudentLocationDisplay.prototype.render = function() {
-	// render into the domnode based on where their location is
+	// render into the dom based on where their location is
 	var location;
 	if (this.status === 'Found') {
 		location = this.currentLocation

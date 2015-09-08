@@ -13,9 +13,11 @@ function getCurrentEvent(user, scanned_data) {
 		return moment( new Date() ).isBetween( start, end );
 	});
 
-	// if there's not a current google calendar event, get the next grove calendar event, and if the scan matches the correct event, change the calendar to indicate that the student has checked in
+	var index = -1;
+
+	// if there's not a current google calendar event, get the next grove calendar event
 	if (!currentEvent) {
-		var index = _.findIndex(user.groveCalendar, function(event) {
+		index = _.findIndex(user.groveCalendar, function(event) {
 			return !event.checkedIn; 
 		});
 
@@ -26,7 +28,7 @@ function getCurrentEvent(user, scanned_data) {
 		}
 	}
 
-	return { event: currentEvent, index: index || -1 };
+	return { event: currentEvent, index: index };
 }
 
 var apiController = {
@@ -74,7 +76,7 @@ var apiController = {
 					var currentEvent = data.event;
 					var index = data.index;
 
-					// If there's not a current event, check to see if there are any grove calendar events, uncheck all of them in, and start at top
+					// If there's not a current event, check to see if there are any grove calendar events that are unchecked, otherwise if there is a grove calendar, uncheck all of them in, and start at top
 					if (!currentEvent && Array.isArray(user.groveCalendar) && user.groveCalendar.length) {
 						_.each(user.groveCalendar, function(event) {
 							event.checkedIn = false;
@@ -144,7 +146,15 @@ var apiController = {
 				console.error(err);
 				res.status(500).send(err);
 			} else {
-				res.send(getCurrentEvent(user).event);
+				// Check the current event and index of the event, if there is no current event that means the student has scanned into all of their grove calendar events, in which case we should send back the first one, without unchecking them in to anything
+				var currentEvent = getCurrentEvent(user).event;
+
+				if (currentEvent) { res.send(currentEvent); }
+				else if (user.groveCalendar && user.groveCalendar.length) { 
+					res.send(user.groveCalendar[0]);
+				} else {
+					res.status(404).send("Could not find next event");
+				}
 			}
 		})
 	},
