@@ -41,6 +41,11 @@ button {
 	margin-bottom: 3%;
 }
 
+iframe[src^="https://apis.google.com"] {
+	display: none;
+	
+}
+
 .locationImage {
 	display: block;
 }

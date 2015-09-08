@@ -2,11 +2,12 @@
 window.EVENT_LENGTH = 15 * 60 * 1000;
 
 // Transition time between events. 5 minutes * 60s * 1000 ms.
-window.TRANSITION_LENGTH = 5 * 60 * 1000;
+window.TRANSITION_LENGTH = 10 * 60 * 1000;
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
-window.LOCATION_IMAGES = {
+window.LOCATION_IMAGES= {
+
   'library center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/green-paint-splatter-md.png">',
   'maker center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/purple-paint.png">',
   'ipad center': '<img class="location-image" src="http://rootselementary.org/wp-content/uploads/2015/08/yellow-splash-ink-md.png">',
@@ -43,7 +44,7 @@ window.CREATOR_IMAGES = {
 	'Julia Quintanilla': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/julia.jpg" class="creator-image">',
 	'Eve Bunevich': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/eve.jpg" class="creator-image">',
 	'Jonathan Hanover': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/jon.jpg" class="creator-image">',
-	'Martin Cech': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/marty.jpg" class="creator-image">',
+	'Marty Cech': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/marty.jpg" class="creator-image">',
 	'Megan Miles': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/megan.jpg" class="creator-image">',
 	'Samantha Gambino': '<img src="http://rootselementary.org/wp-content/uploads/2014/12/image1-2-300x300.jpg" class="creator-image">',
 	'Mahdyeh Nowkhandan': '<img src="http://rootselementary.org/wp-content/uploads/2015/08/mahdyeh.jpg" class="creator-image">',
@@ -54,7 +55,8 @@ window.CREATOR_IMAGES = {
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
-	'Library Center': ['Level Reading', 'Buddy Reading','Blocks'],
+	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
+	'Writing Center':["Writer's Workshop"],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', 'RazKids']
 };
