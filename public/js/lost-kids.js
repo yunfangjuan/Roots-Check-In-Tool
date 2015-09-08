@@ -139,23 +139,24 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 			var difference = moment(scan.event.end).diff( now );
 		}
 		else {
-			var intervals = 60 / (EVENT_LENGTH / (60 * 1000));
-			var end_times = [];
-			var hour_start;
+			/* Split the hour based on EVENT_LENGTH and TRANSITION_LENGTH
+      e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
+      be the period during which the timeout would be set for 9:10 */
+      var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
+      var start_times = [];
+      for (var i =0; i < intervals; i++) {
+        start_times.push(now.startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
+      }
+      
+      var event_end = _.find(start_times, function(t) {
+        return now.isBetween( t, t.add( EVENT_LENGTH, 'ms' ) );
+      }).add(EVENT_LENGTH, 'ms');
 
-			// Create an array of all times we will auto-move the student at. (e.g. if event length is 10 minutes, we move the student when the next event would be starting, 12:10, 12:20, etc)
-			for (var i =1; i<=intervals; i++) {
-				// re-initiate the start of hour so that the reference does not get overriden
-				hour_start = moment( new Date() ).startOf('hour');
-				end_times.push( hour_start.add(i * EVENT_LENGTH, 'ms') );
-			}
-			// Event ends at the first end time after this check-in
-			var event_end = _.find(end_times, function(t) {
-				return t.isAfter(now);
-			});
+	
 			// Push student into lost after event ends and transition time has lapsed
 			var difference = event_end.diff(now);
 		}
+
 		this.transitionTimeout = window.setTimeout( self.moveMe.bind(self, null), difference);
 	}
 	// If the scan does not match the location, the student is in the wrong location

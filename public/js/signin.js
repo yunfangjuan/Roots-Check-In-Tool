@@ -171,7 +171,7 @@ function getCalendar(userData){
           var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
           var start_times = [];
           for (var i =0; i < intervals; i++) {
-            start_times.push(moment().startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
+            start_times.push(currentTime.startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
           }
           // Event starts at the first start time after this check-in period
           var event_start = _.find(start_times, function(t) {
