@@ -167,6 +167,7 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 	else {
 		this.status = 'Lost';
 		this.currentLocation = 'Lost';
+		this.recentScan = null;
 	}
 
 	// Now render
