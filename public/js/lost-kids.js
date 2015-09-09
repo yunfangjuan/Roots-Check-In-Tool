@@ -2,6 +2,22 @@
 
 var studentsArray = [];
 var FILTER = 'All'
+var sort = function (prop, arr) {
+			    prop = prop.split('.');
+			    var len = prop.length;
+			    arr.sort(function (a, b) {
+			        var i = 0;
+			        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
+			        if (a < b) {
+			            return -1;
+			        } else if (a > b) {
+			            return 1;
+			        } else {
+			            return 0;
+			        }
+			    });
+			    return arr;
+			};
 
 // Class of student display
 var StudentLocationDisplay = function(student) {
@@ -260,22 +276,7 @@ $(function(){
 
 			displays.height(maxHeight);
 		}, 500);
-		var sort = function (prop, arr) {
-			    prop = prop.split('.');
-			    var len = prop.length;
-			    arr.sort(function (a, b) {
-			        var i = 0;
-			        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
-			        if (a < b) {
-			            return -1;
-			        } else if (a > b) {
-			            return 1;
-			        } else {
-			            return 0;
-			        }
-			    });
-			    return arr;
-			};
+	
 
 		studentsArray = sort('data.name',studentsArray);
 		
