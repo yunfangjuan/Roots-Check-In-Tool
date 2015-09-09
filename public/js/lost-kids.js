@@ -245,28 +245,27 @@ $(function(){
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
-			var sort = function (prop, arr) {
-    prop = prop.split('.');
-    var len = prop.length;
+				}
+								);
+		var sort = function (prop, arr) {
+			    prop = prop.split('.');
+			    var len = prop.length;
+			    arr.sort(function (a, b) {
+			        var i = 0;
+			        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
+			        if (a < b) {
+			            return -1;
+			        } else if (a > b) {
+			            return 1;
+			        } else {
+			            return 0;
+			        }
+			    });
+			    return arr;
+			};
 
-    arr.sort(function (a, b) {
-        var i = 0;
-        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
-        if (a < b) {
-            return -1;
-        } else if (a > b) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    return arr;
-};
+		studentsArray = sort('data.name',studentsArray);
 
-studentsArray = sort('data.name',studentsArray);
-		});
-		
-	
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
