@@ -263,7 +263,8 @@ $(function(){
 			return new StudentLocationDisplay(student);
 			
 		});
-	var studentSort =	sort('data.name',studentsArray);
+	var studentSort = [];
+	studentSort = sort('data.name',studentsArray);
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
