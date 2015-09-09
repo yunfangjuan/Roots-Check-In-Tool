@@ -278,8 +278,8 @@ $(function(){
 		}, 500);
 	
 
-		studentsArray = sort('data.name',studentsArray);
+	
 		
 	});
-
+	studentsArray = sort('data.name',studentsArray);
 });
