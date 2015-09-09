@@ -193,7 +193,7 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 // When receiving a scan, find the student that matches the scan, move them to a new location based on the scan and clear any possible transitions
 function scanReceived(scan) {
 
-	var scanStudent = _.find(studentsArray, function(student) {
+	var scanStudent = _.find(studentSort, function(student) {
 		return student.data.googleId === scan.googleId;
 	});
 
