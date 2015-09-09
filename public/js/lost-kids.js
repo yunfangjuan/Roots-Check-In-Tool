@@ -246,7 +246,20 @@ $(function(){
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
 				}
-								);
+
+		// Put in a slight delay for student panels to display, then set them all to same height
+
+		window.setTimeout(function(){
+			var displays = $('.studentLocationDisplay');
+
+			var heights = displays.map(function() {
+				return $(this).height()
+			});
+
+			var maxHeight = Math.max.apply(null, heights);
+
+			displays.height(maxHeight);
+		}, 500);
 		var sort = function (prop, arr) {
 			    prop = prop.split('.');
 			    var len = prop.length;
@@ -265,21 +278,6 @@ $(function(){
 			};
 
 		studentsArray = sort('data.name',studentsArray);
-
-		// Put in a slight delay for student panels to display, then set them all to same height
-
-		window.setTimeout(function(){
-			var displays = $('.studentLocationDisplay');
-
-			var heights = displays.map(function() {
-				return $(this).height()
-			});
-
-			var maxHeight = Math.max.apply(null, heights);
-
-			displays.height(maxHeight);
-		}, 500);
-	
 		
 	});
 
