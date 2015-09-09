@@ -207,7 +207,7 @@ function scanReceived(scan) {
 }
 
 $(function(){
-
+	
 	// Load the different button filters and divs
 	_.keys(LOCATION_IMAGES).forEach( function(location) {
 		// Manual override for iPad Center to avoid sentence casing
@@ -257,7 +257,7 @@ $(function(){
 	// Get AJAX call to User database and get all the students, create StudentLocationDisplay objects for each, and put them in the students array
 	var tracker = io.connect();
 	tracker.on('SCAN!', scanReceived );
-
+	studentsArray = sort('data.name',studentsArray);
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
@@ -281,5 +281,5 @@ $(function(){
 	
 		
 	});
-	studentsArray = sort('data.name',studentsArray);
+	
 });
