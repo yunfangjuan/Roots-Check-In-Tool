@@ -193,7 +193,7 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 // When receiving a scan, find the student that matches the scan, move them to a new location based on the scan and clear any possible transitions
 function scanReceived(scan) {
 
-	var scanStudent = _.find(studentSort, function(student) {
+	var scanStudent = _.find(studentsArray, function(student) {
 		return student.data.googleId === scan.googleId;
 	});
 
@@ -261,10 +261,10 @@ $(function(){
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
-			
+	
 		});
-	var studentSort = [];
-	studentSort = sort('data.name',studentsArray);
+		sort('data.name',studentsArray);
+	
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
