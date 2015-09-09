@@ -246,7 +246,6 @@ $(function(){
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
 		});
-		studentsArray.sort();
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
@@ -260,6 +259,8 @@ $(function(){
 
 			displays.height(maxHeight);
 		}, 500);
+	
+			studentsArray.sort();
 	});
 
 });
