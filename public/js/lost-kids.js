@@ -257,12 +257,13 @@ $(function(){
 	// Get AJAX call to User database and get all the students, create StudentLocationDisplay objects for each, and put them in the students array
 	var tracker = io.connect();
 	tracker.on('SCAN!', scanReceived );
-	studentsArray =	sort('data.name',studentsArray);
+	
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
+			
 		});
-
+	var studentSort =	sort('data.name',studentsArray);
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
