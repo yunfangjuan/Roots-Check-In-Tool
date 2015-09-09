@@ -245,7 +245,7 @@ $(function(){
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
-				studentsArray.sort();
+				.sortBy('value');
 		});
 		// Put in a slight delay for student panels to display, then set them all to same height
 
