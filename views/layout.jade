@@ -7,9 +7,10 @@ html(lang='en')
 		block meta
 
 		title Roots Check-In Tool
-		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
-		link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
-		link(rel='stylesheet' href='/stylesheets/main.css')
+		//- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+		//- link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+		//- link(rel='stylesheet' href='/stylesheets/main.css')
+		link(rel='stylesheet' href='./build/bundle.css')
 		block stylesheets
 
 	body
@@ -17,12 +18,12 @@ html(lang='en')
 
 		block content
 		
-		script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js")
-		script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
-		script(src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js')
+		script(src="./build/bundle.js")
+		//- script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js")
+		//- script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+		//- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+		//- script(src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js')
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.4/socket.io.min.js")
-		script(src="/CONFIG.js")
 		block scripts
 
 		

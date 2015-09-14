@@ -1,3 +1,13 @@
+// Requires
+
+require('../CONFIG');
+var _ = require('lodash');
+var moment = require('moment');
+var $ = require('jquery');
+require('select2');
+require('bootstrap');
+require('jquery-ui');
+
 // Global variable students: array of all the student objects
 var students = [];
 
@@ -83,7 +93,6 @@ StudentGroveDisplay.prototype.updateSort = function(e, ui) {
 
 	// First, grab the updated list of indices, stored in the data-index attribute, and create a copy of the student's array of events
 	var indices = $('#events-list').sortable("toArray", { attribute: 'data-index' });
-	var tempDisplays  = _.cloneDeep(this.eventDisplays);
 
 	// Now iterate through each index, and update the orders
 	indices.forEach(function(data_index, order) {

@@ -21,8 +21,18 @@ mongoose.connect(mongoDB_URL + '/rootsApp');
 var http = require('http').Server(app);
 var socket = require('socket.io').listen(http);
 
+// Add a dummy ping to keep connections alive so heroku doesn't kill them
 socket.on('connection', function(socket){
 	console.log('Someone connected!');
+
+	var pinger = setInterval(function() {
+		socket.emit('PING!');
+	}, 30000);
+
+	socket.on('disconnect', function() {
+		console.log('Someone disconnected!');
+		clearInterval(pinger);
+	});
 });
 
 // ROUTES
@@ -35,7 +45,6 @@ app.get('/scanredirect/:id', function(req, res) {
 	apiController.saveScan(req, res, socket);
 });
 
-app.get('/instructor', indexController.instructor);
 app.get('/success', indexController.success);
 app.get('/whoops', indexController.whoops);
 app.get('/grove-calendar', indexController.groveCalendar);

@@ -1,3 +1,11 @@
+// Requires
+
+require('../CONFIG.js');
+var _ = require('lodash');
+var moment = require('moment');
+var $ = require('jquery');
+require('jquery.countdown');
+
 // Renders the progress bar at the top of page, using the start time of the student's next (or current) event.
 renderProgressBar = function(eventStart){
 
@@ -7,9 +15,9 @@ renderProgressBar = function(eventStart){
   if (eventStart && currentTime.isAfter( eventStart ) ) {
     return null;
   } else {
-    $('.timer').countdown({  
+    $('.timer').countDown({  
       start_time: currentTime, //Time when the progress bar is at 0%
-      end_time: eventStart || currentTime.add(1, ms), //Time Progress bar is at 100% and timer runs out, when no eventStart is passed for end_time, use current time with 1 added ms to trigger onComplete and update_progress
+      end_time: eventStart || currentTime.add(1, 'ms'), //Time Progress bar is at 100% and timer runs out, when no eventStart is passed for end_time, use current time with 1 added ms to trigger onComplete and update_progress
       progress: $('.progress-bar'), //There dom element which should display the progressbar.
       onComplete: function() {
         $('.timer').show();
@@ -33,17 +41,19 @@ renderProgressBar = function(eventStart){
 // Render a location image
 renderLocationImage = function(eventLocation, eventActivity, eventCreator, focusArea) {
 
-  $('#locationImage').append( LOCATION_IMAGES[eventLocation.toLowerCase()] );
-  $('#locationText').append(eventLocation);
+  if (eventLocation) {
+    $('#locationImage').append( LOCATION_IMAGES[eventLocation.toLowerCase()] );
+    $('#locationText').append(eventLocation);
+  }
 
   // Check if the event activity has an icon, otherwise it is a description and use GET_ACTIVITY
-  if (ACTIVITY_IMAGES[eventActivity.toLowerCase()]) {
+  if (eventActivity && ACTIVITY_IMAGES[eventActivity.toLowerCase()]) {
     $('#activityImage').append( ACTIVITY_IMAGES[eventActivity.toLowerCase()] );
   } else {
     $('#activityImage').append( GET_ACTIVITY(eventActivity) );
   }
 
-  $('#activityText').append(eventActivity);
+  $('#activityText').append(eventActivity || '');
 
   if (eventCreator) {
     $('#creatorImage').append( CREATOR_IMAGES[eventCreator] );
@@ -90,7 +100,7 @@ renderGroveCalendar = function(numEvents, userData) {
   });
 }
 
-function getCalendar(userData){
+getCalendar = function(userData){
 
   // Start and end times for calendar
   var start = moment().startOf('day').toISOString();
@@ -191,7 +201,7 @@ function getCalendar(userData){
   });
 }
 
-function signinCallback(authResult) {
+signinCallback = function(authResult) {
   if (authResult['status']['signed_in']) {
 
     // Update the app to reflect a signed in user

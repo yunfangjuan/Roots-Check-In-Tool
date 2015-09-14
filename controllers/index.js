@@ -2,10 +2,6 @@ var indexController = {
 	index: function(req, res, socket) {
 		res.render('index')
 	},
-	instructor: function(req, res){
-		res.render('instructor');
-	},
-
 	success: function(req, res) {
 		res.render('success')
 	},

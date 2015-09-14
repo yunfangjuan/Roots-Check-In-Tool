@@ -1,3 +1,19 @@
+/* NOTE:
+
+This file is not currently used. It is useful in the event that we would want to show
+a student their upcoming schedule on one page. 
+
+It is not production-ready, and should be heavily bug-checked.
+
+*/
+
+// Requires
+
+var _ = require('lodash');
+var moment = require('moment');
+var $ = require('jQuery');
+
+// Methods
 
 renderGoogleLocationImage = function(event) {
   

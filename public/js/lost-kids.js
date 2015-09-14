@@ -1,3 +1,10 @@
+// Requires
+
+require('../CONFIG');
+var _ = require('lodash');
+var moment = require('moment');
+var $ = require('jquery');
+
 // Globals
 
 var studentsArray = [];
@@ -137,21 +144,21 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 		var now = moment( new Date() );
 		
 		if (scan.event.end) {
-			var difference = moment(scan.event.end).diff( now );
+			var difference = moment(scan.event.end).subtract( TRANSITION_LENGTH, 'ms').diff( now );
 		}
 		else {
 			/* Split the hour based on EVENT_LENGTH and TRANSITION_LENGTH
-      e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
-      be the period during which the timeout would be set for 9:10 */
-      var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
-      var start_times = [];
-      for (var i =0; i < intervals; i++) {
-        start_times.push( moment( new Date() ).startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
-      }
+		    e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
+		    be the period during which the timeout would be set for 9:10 */
+		    var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
+		    var start_times = [];
+		    for (var i =0; i < intervals; i++) {
+		      start_times.push( moment( new Date() ).startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
+		    }
 
-      var event_end = _.find(start_times, function(t) {
-        return now.isBetween( t, moment(t).add( EVENT_LENGTH, 'ms' ) );
-      }).add(EVENT_LENGTH, 'ms');
+		    var event_end = _.find(start_times, function(t) {
+		        return now.isBetween( t, moment(t).add( EVENT_LENGTH, 'ms' ) );
+		    }).add(EVENT_LENGTH, 'ms');
 
 			// Push student into lost after event ends and transition time has lapsed
 			var difference = event_end.diff(now);
