@@ -82,6 +82,9 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('st math')) {
 		return '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">';
 	} 
+	else if (description.match('dump')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dumptruck.jpg">';
+	}
 	else if (description.match('math')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">';
 	}
@@ -112,9 +115,7 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('ipad')) {
 		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/pda-clipart-tablet-computer-clipart-l_001.png">';
 	}
-	else if (description.match('dump')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dumptruck.jpg">';
-	}
+	
 
 	
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
