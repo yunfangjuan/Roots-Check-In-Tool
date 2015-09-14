@@ -9,6 +9,22 @@ var $ = require('jquery');
 
 var studentsArray = [];
 var FILTER = 'All'
+var sort = function (prop, arr) {
+			    prop = prop.split('.');
+			    var len = prop.length;
+			    arr.sort(function (a, b) {
+			        var i = 0;
+			        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
+			        if (a < b) {
+			            return -1;
+			        } else if (a > b) {
+			            return 1;
+			        } else {
+			            return 0;
+			        }
+			    });
+			    return arr;
+			};
 
 // Class of student display
 var StudentLocationDisplay = function(student) {
@@ -198,7 +214,7 @@ function scanReceived(scan) {
 }
 
 $(function(){
-
+	
 	// Load the different button filters and divs
 	_.keys(LOCATION_IMAGES).forEach( function(location) {
 		// Manual override for iPad Center to avoid sentence casing
@@ -248,12 +264,14 @@ $(function(){
 	// Get AJAX call to User database and get all the students, create StudentLocationDisplay objects for each, and put them in the students array
 	var tracker = io.connect();
 	tracker.on('SCAN!', scanReceived );
-
+	
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
+	
 		});
-
+		sort('data.name',studentsArray);
+	
 		// Put in a slight delay for student panels to display, then set them all to same height
 
 		window.setTimeout(function(){
@@ -267,6 +285,10 @@ $(function(){
 
 			displays.height(maxHeight);
 		}, 500);
-	});
+	
 
+	
+		
+	});
+	
 });
