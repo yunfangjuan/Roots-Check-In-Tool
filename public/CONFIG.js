@@ -55,7 +55,8 @@ window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop"],
 	'Maker Center': ['Blocks', 'Legos'],
-	'iPad Center': ['ST Math', 'RazKids']
+	'iPad Center': ['ST Math', 'RazKids'],
+	'Flex Center':['Dump Truck Math']
 };
 
 // The list of all possible Focus Areas, and their associated pictures
