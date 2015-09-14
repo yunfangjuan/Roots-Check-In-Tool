@@ -14,7 +14,7 @@ module.exports = {
             "select2",
             "jquery-ui",
             "jquery.countdown",
-            './public/CONFIG.js'
+            './public/css-load.js'
         ]
     },
     output: {

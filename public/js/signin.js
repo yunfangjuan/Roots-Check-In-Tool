@@ -1,6 +1,5 @@
 // Requires
 
-require('../CONFIG.js');
 var _ = require('lodash');
 var moment = require('moment');
 var $ = require('jquery');
