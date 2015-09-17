@@ -119,7 +119,6 @@ window.GET_ACTIVITY = function(description) {
 +		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/ABC+Phonics.PNG">';
 +	}
  
-	
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
  		if(description.match(activity)) {
