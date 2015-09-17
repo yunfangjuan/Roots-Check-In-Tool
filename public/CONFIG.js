@@ -55,7 +55,7 @@ window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop"],
 	'Maker Center': ['Blocks', 'Legos'],
-	'iPad Center': ['ST Math', 'RazKids'],
+	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics'],
 	'Flex Center':['Dump Truck Math']
 };
 
@@ -115,8 +115,10 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('ipad')) {
 		return '<img class="activity-image" src="http://rootselementary.org/wp-content/uploads/2015/08/pda-clipart-tablet-computer-clipart-l_001.png">';
 	}
-	
-
+	else if (description.match('abc phonics')) {
++		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/ABC+Phonics.PNG">';
++	}
+ 
 	
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
