@@ -43,7 +43,7 @@ window.CREATOR_IMAGES = {
 	'Jonathan Hanover': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/jon.jpg" class="creator-image">',
 	'Marty Cech': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/marty.jpg" class="creator-image">',
 	'Megan Miles': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/megan.jpg" class="creator-image">',
-	'Samantha Gambino': '<img src="http://rootselementary.org/wp-content/uploads/2014/12/image1-2-300x300.jpg" class="creator-image">',
+	'Samantha Gambino': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sam.jpg" class="creator-image">',
 	'Mahdyeh Nowkhandan': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mahdyeh.jpg" class="creator-image">',
 	'Debbie Van Roy': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/debbie.jpg" class="creator-image">',
 	'Dominic Hernandez': '<img src=https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
