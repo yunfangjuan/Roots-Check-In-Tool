@@ -53,10 +53,10 @@ window.CREATOR_IMAGES = {
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
-	'Writing Center':["Writer's Workshop"],
+	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
-	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics'],
-	'Flex Center':['Dump Truck Math']
+	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game'],
+	'Flex Center':['Dump Truck Math','Build A Tower']
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -120,6 +120,15 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('meditation')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/meditate.png">';
+	}
+	else if (description.match('counting game')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/countingtool.PNG">';
+	}
+	else if (description.match('personal narrative')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/personal+narratives.PNG">';
+	}
+	else if (description.match('build a tower')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/tower.PNG">';
 	}
  
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
