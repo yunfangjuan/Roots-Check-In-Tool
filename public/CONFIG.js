@@ -130,7 +130,12 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('build a tower')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/tower.PNG">';
 	}
- 
+ 	else if (description.match('sound round')) {
+ 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sound+roudn.png">';
+	}	
+	else if (description.match('letter time')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/letter+time.jpg">';
+	}
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
  		if(description.match(activity)) {
