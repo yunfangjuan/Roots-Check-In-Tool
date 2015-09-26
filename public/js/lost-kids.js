@@ -27,20 +27,33 @@ var sort = function (prop, arr) {
 
 // Class of student display
 var StudentLocationDisplay = function(student) {
-	this.data = _.pick(student, ['_id', 'email','name','image','googleId']);
+	this.data = _.pick(student, ['_id', 'email','name','image','googleId', 'absent']);
 	
 	// Create the DOM element representing the student
 	var display = $('<div>').addClass('studentLocationDisplay').addClass('col-md-2').attr('id', student.googleId);
 	var container = $('<div>').addClass('nameImageContainer');
+	var absentToggle = $('<button>').addClass('btn btn-xs btn-primary absent-toggle').text( student.absent ? 'Present' : 'Absent');
+
+	var toggle = $('<div>').append(absentToggle);
+
+	absentToggle.on('click', this.toggleAbsent.bind(this));
+	var info = $('<div>').addClass('studentInfoContainer')
+
 	container
 		.append('<div class="name">' + student.name + '</div>')
 		.append('<div><img class="studentImage" src="' +student.image+'"></div>');
-	display.append(container);
-	display.append('<div class="studentInfoContainer"></div>')
+
+	display.append( container ).append( info ).append( toggle );
+
 	this.el = display;
 
+	// If student is absent, no need to mess with any of the below data
+	if (student.absent) {
+		this.status = 'Absent';
+		this.updateDisplay();
+	}
 	// Look at the student's recent scan to determine if they are in the correct place or not
-	if (student.recentScan) {
+	else if (student.recentScan) {
 		scan = student.recentScan;
 		this.recentScan = scan;
 		// First, check if the scan is recent (i.e. if that event is still ongoing)
@@ -63,21 +76,34 @@ var StudentLocationDisplay = function(student) {
 		// If the scan is not recent, student is lost
 		else {
 			this.status = 'Lost';
-			this.currentLocation = 'Lost';
-			this.render('Lost');
+			this.updateDisplay();
 		}
 	} 
 	// If there is no recent scan at all, student is lost
 	else {
 		this.status = 'Lost';
-		this.currentLocation = 'Lost';
-		this.render('Lost');
+		this.updateDisplay();
 	}
 
 };
 
+// Toggles absent / present status
+StudentLocationDisplay.prototype.toggleAbsent = function(e) {
+	e.preventDefault();
+
+	this.status = this.status === 'Absent' ? 'Lost' : 'Absent';
+
+	var self = this;
+
+	$.post( '/api/user/', { id: this.data.googleId, absent: !this.data.absent }, self.updateDisplay.bind(self) );
+}
+
 // Updates student display based on most recent scan / event 
 StudentLocationDisplay.prototype.updateDisplay = function() {
+
+	if (this.status != 'Absent') {
+		this.el.find('.absent-toggle').text('Absent');
+	}
 
 	if (this.status === 'Found') {
 		var scannedEvent = this.recentScan.event[0];
@@ -93,47 +119,34 @@ StudentLocationDisplay.prototype.updateDisplay = function() {
 
 		this.el.find('.studentInfoContainer').empty().append(info);
 		this.el.removeClass('Lost').addClass('Found');
-	}
-	// If the student is in the wrong location, display the scan information
-	else if (this.status === 'Wrong Location') {
-		this.el.removeClass('Found').addClass('Lost');
-
-		// Time of the scan, if we want to display this information
-		// var time = this.recentScan ? moment(this.recentScan.time).fromNow() : '';
-
-		var info = $('<p>').addClass('last-scan-info').addClass('wrongLocation').text(this.currentLocation);
-		var correction = $('<p>').addClass('text-primary').addClass('correct-location-info').text(this.recentScan.event[0].location);
-
-		this.el.find('.studentInfoContainer').empty().append(info, correction);
+		this.render();
 	}
 	// If the student is lost, do not display the last scan information
-	else {
+	else if (this.status === 'Lost') {
 		var self = this;
 
 		// Call the API endpoint to get current event without a scan
 		$.get('/current-event/' + this.data.googleId, function(result) {
 			self.el.removeClass('Found').addClass('Lost');
 			
-			if(result && result.location) {
-				var correction = $('<p>').addClass('correct-location-info').addClass('text-primary').text(result.location);
-				self.el.find('.studentInfoContainer').empty().append(correction);
-			} 
+			var correction = $('<p>').addClass('correct-location-info').addClass('text-primary').text(result.location);
+			self.el.find('.studentInfoContainer').empty().append(correction);
+			self.currentLocation = result && result.location || 'No Event';
+
+			self.render()
 			
 		});
+	} else if (this.status === 'Absent') {
+		this.el.removeClass('Found').addClass('Lost');
+		this.currentLocation = 'Absent';
+		this.el.find('.absent-toggle').text('Present');
+		this.render()
 	}
 };
 
 StudentLocationDisplay.prototype.render = function() {
 	// render into the dom based on where their location is
-	var location;
-	if (this.status === 'Found') {
-		location = this.currentLocation
-	} else {
-		location = 'Lost';
-	}
-
-	var locationId = location.split(' ').join('');
-	this.updateDisplay();
+	var locationId = this.currentLocation.split(' ').join('');
 	$('#'+locationId).append(this.el);
 };
 
@@ -183,17 +196,17 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 	}
 	// If the scan does not match the location, the student is in the wrong location
 	else if (scan) {
-		this.status = 'Wrong Location';
+		this.status = 'Lost';
 	}
 	// If there is no scan, this method is being triggered by the timeout, meaning the student has not scanned in to anywhere on time and is lost
+	// We need to get the student's next event and move them accordingly
 	else {
 		this.status = 'Lost';
 		this.currentLocation = 'Lost';
 		this.recentScan = null;
 	}
 
-	// Now render
-	self.render();
+	// Now updateDisplay()self.updateDisplay();
 };
 
 // When receiving a scan, find the student that matches the scan, move them to a new location based on the scan and clear any possible transitions
@@ -267,7 +280,6 @@ $(function(){
 	$.get('api/user', function(students) {
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
-	
 		});
 		sort('data.name',studentsArray);
 	

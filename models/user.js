@@ -6,6 +6,7 @@ var userSchema = mongoose.Schema ({
 	email: String,
 	image: String,
 	access_token: String,
+	absent: Boolean,
 	// calendar_id: String
 	recentScan: {
 		time: String,

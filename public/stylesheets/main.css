@@ -61,7 +61,6 @@ iframe[src^="https://apis.google.com"] {
 .creator-image{
 	width:50%;
 	height:auto;
-	
 };
 
 #groveCalendar {
@@ -190,11 +189,17 @@ iframe[src^="https://apis.google.com"] {
 .correct-location-info{
 	position: relative;
 	top:105px;
-        font-size: 12px;
+    font-size: 12px;
 }
 
 .location-image {
 	width: 60% !important;
+}
+
+.absent-toggle {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
 }
 
 
