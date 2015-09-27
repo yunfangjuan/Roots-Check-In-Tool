@@ -8,35 +8,23 @@ var $ = require('jquery');
 
 var studentsArray = [];
 var FILTER = 'All'
-var sort = function (prop, arr) {
-			    prop = prop.split('.');
-			    var len = prop.length;
-			    arr.sort(function (a, b) {
-			        var i = 0;
-			        while( i < len ) { a = a[prop[i]]; b = b[prop[i]]; i++; }
-			        if (a < b) {
-			            return -1;
-			        } else if (a > b) {
-			            return 1;
-			        } else {
-			            return 0;
-			        }
-			    });
-			    return arr;
-			};
+function sortByNameAndStatus(a, b) {
+	var an = $(a).attr('data-name'), bn = $(b).attr('data-name');
+
+	return $(b).hasClass('Found') - $(a).hasClass('Found') || (an > bn) - 1 || 1; 
+};
 
 // Class of student display
 var StudentLocationDisplay = function(student) {
 	this.data = _.pick(student, ['_id', 'email','name','image','googleId', 'absent']);
 	
 	// Create the DOM element representing the student
-	var display = $('<div>').addClass('studentLocationDisplay').addClass('col-md-2').attr('id', student.googleId);
+	var display = $('<div>').addClass('studentLocationDisplay').addClass('col-md-2').attr('id', student.googleId).attr('data-name', student.name);
 	var container = $('<div>').addClass('nameImageContainer');
 	var absentToggle = $('<button>').addClass('btn btn-xs btn-primary absent-toggle').text( student.absent ? 'Present' : 'Absent');
 
 	var toggle = $('<div>').append(absentToggle);
 
-	absentToggle.on('click', this.toggleAbsent.bind(this));
 	var info = $('<div>').addClass('studentInfoContainer')
 
 	container
@@ -44,6 +32,8 @@ var StudentLocationDisplay = function(student) {
 		.append('<div><img class="studentImage" src="' +student.image+'"></div>');
 
 	display.append( container ).append( info ).append( toggle );
+	
+	absentToggle.on('click', this.toggleAbsent.bind(this));
 
 	this.el = display;
 
@@ -147,7 +137,15 @@ StudentLocationDisplay.prototype.updateDisplay = function() {
 StudentLocationDisplay.prototype.render = function() {
 	// render into the dom based on where their location is
 	var locationId = this.currentLocation.split(' ').join('');
-	$('#'+locationId).append(this.el);
+	var location = $('#'+locationId)
+	location.append(this.el);
+
+	var locationArray = location.find('.studentLocationDisplay').sort( sortByNameAndStatus );
+
+	locationArray.detach().appendTo( location );
+
+	// Re-attach the absent click handler, was getting a strange bug where it did not always fire otherwise
+	this.el.find('.absent-toggle').off('click').on('click', this.toggleAbsent.bind(this) )
 };
 
 // Move the student to a new location based on the most recent scan
@@ -202,11 +200,11 @@ StudentLocationDisplay.prototype.moveMe = function(scan) {
 	// We need to get the student's next event and move them accordingly
 	else {
 		this.status = 'Lost';
-		this.currentLocation = 'Lost';
 		this.recentScan = null;
 	}
 
-	// Now updateDisplay()self.updateDisplay();
+	// Now updateDisplay
+	self.updateDisplay();
 };
 
 // When receiving a scan, find the student that matches the scan, move them to a new location based on the scan and clear any possible transitions
@@ -281,24 +279,20 @@ $(function(){
 		studentsArray = _.map(students, function(student) {
 			return new StudentLocationDisplay(student);
 		});
-		sort('data.name',studentsArray);
-	
-		// Put in a slight delay for student panels to display, then set them all to same height
+		
+		// Put in a slight delay for student panels to display, then set them all to same height (don't need this with css changes, but keeping it in case we want to go back to this method)
 
-		window.setTimeout(function(){
-			var displays = $('.studentLocationDisplay');
+		// window.setTimeout(function(){
+		// 	var displays = $('.studentLocationDisplay');
 
-			var heights = displays.map(function() {
-				return $(this).height()
-			});
+		// 	var heights = displays.map(function() {
+		// 		return $(this).height()
+		// 	});
 
-			var maxHeight = Math.max.apply(null, heights);
+		// 	var maxHeight = Math.max.apply(null, heights);
 
-			displays.height(maxHeight);
-		}, 500);
-	
-
-	
+		// 	displays.height(maxHeight);
+		// }, 500);
 		
 	});
 	
