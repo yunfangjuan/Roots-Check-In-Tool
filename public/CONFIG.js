@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game'],
-	'Flex Center':['Dump Truck Math','Build A Tower']
+	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!']
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -135,6 +135,18 @@ window.GET_ACTIVITY = function(description) {
 	}	
 	else if (description.match('letter time')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/letter+time.jpg">';
+	}
+	else if (description.match('begining sounds')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/beginning+sounds.png">';
+	}
+	else if (description.match('cvc')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/cvc.jpg">';
+	}
+	else if (description.match('rhyming')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/rhyming.png">';
+	}
+	else if (description.match('read and build')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/read+and+build.PNG">';
 	}
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
