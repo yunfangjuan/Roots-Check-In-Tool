@@ -3,13 +3,17 @@ var User = require('../models/user');
 var _ = require('lodash');
 var moment = require('moment');
 
+var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 6;
+TRANSITION_LENGTH = TRANSITION_LENGTH * 60 * 1000;
+var EVENT_LENGTH = Number(process.env.EVENT_LENGTH) || 15;
+EVENT_LENGTH = EVENT_LENGTH * 60 * 1000;
+
 // Helper function to get the current event for a student
 function getCurrentEvent(user, scanned_data) {
 	// To find a current event, we want to look for an event that we are transitioning into or that is currently going on (but not transitioning out of). e.g. with transition time of 5 minutes and event of 15, from 8:55 - 9:10 the current event would be one that that goes from 9 - 9:15
 	var currentEvent = _.find(user.calendar, function(event) {
-		var transition = Number(process.env.TRANSITION_LENGTH) || 5;
-		var start = moment( event.start ).subtract(transition * 60 * 1000, 'ms');
-		var end = moment( event.end ).subtract(transition * 60 * 1000, 'ms' );
+		var start = moment( event.start ).subtract(TRANSITION_LENGTH, 'ms');
+		var end = moment( event.end ).subtract(TRANSITION_LENGTH, 'ms' );
 		return moment( new Date() ).isBetween( start, end );
 	});
 
@@ -91,15 +95,15 @@ var apiController = {
 					/* Split the hour based on process.env.EVENT_LENGTH and TRANSITION_LENGTH
 				    e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
 				    be the period during which the timeout would be set for 9:10 */
-				    var intervals = 60 / (process.env.EVENT_LENGTH / (60 * 1000)) + 1;
+				    var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
 				    var start_times = [];
 				    for (var i =0; i < intervals; i++) {
-				      start_times.push( moment( new Date() ).startOf('hour').add(i * process.env.EVENT_LENGTH - process.env.TRANSITION_LENGTH, 'ms'));
+				      start_times.push( moment( new Date() ).startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
 				    }
 
 				    var event_end = _.find(start_times, function(t) {
-				        return currentTime.isBetween( t, moment(t).add( process.env.EVENT_LENGTH, 'ms' ) );
-				    }).add(process.env.EVENT_LENGTH, 'ms');
+				        return currentTime.isBetween( t, moment(t).add( EVENT_LENGTH, 'ms' ) );
+				    }).add(EVENT_LENGTH, 'ms');
 
 					var difference = event_end.diff(currentTime);
 
