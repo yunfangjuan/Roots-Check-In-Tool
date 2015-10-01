@@ -105,13 +105,10 @@ var apiController = {
 
 					// If the scanned data was correct, consider the event checked into once the event is done, and clear any times in case the student keeps checking into the same event
 					if (scanned_data && currentEvent && currentEvent.location === scanned_data && index > -1) {
-						if (user.timeoutId) {
-							clearTimeout(user.timeoutId);
-						}
-						user.timeoutId = setTimeout(function() {
-							user.groveCalendar[index].checkedIn = true;
-							user.save();
-						}, difference);
+						setTimeout(function(modelItem, ind) {
+							modelItem.groveCalendar[ind].checkedIn = true;
+							modelItem.save();
+						}, difference, user, index);
 					}
 
 					// Set correctness

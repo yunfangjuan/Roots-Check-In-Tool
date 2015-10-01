@@ -37,8 +37,7 @@ var userSchema = mongoose.Schema ({
 		activity: String,
 		focus_area: String,
 		checkedIn: Boolean
-	}],
-	timeoutId: String
+	}]
 });
 
 module.exports = mongoose.model('user', userSchema);
