@@ -273,3 +273,7 @@ iframe[src^="https://apis.google.com"] {
 .activity-form button {
 	margin-top: 20px;
 }
+
+.all-absent {
+	margin-right: 50px;
+}

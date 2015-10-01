@@ -224,9 +224,8 @@ function scanReceived(scan) {
 }
 
 $(function(){
-	
 	// Load the different button filters and divs
-	_.keys(LOCATION_IMAGES).forEach( function(location) {
+	_.keys(LOCATION_IMAGES).concat('Absent').forEach( function(location) {
 		// Manual override for iPad Center to avoid sentence casing
 		if (location.toLowerCase() === 'ipad center') {
 			var prettyDisplay = 'iPad Center';
@@ -294,6 +293,15 @@ $(function(){
 		// 	displays.height(maxHeight);
 		// }, 500);
 		
+	});
+
+	// All absent event handler
+	$('.all-absent').on('click', function() {
+		$.ajax('/api/user/bulk', { 
+			type: 'PUT',
+			contentType: 'application/json',
+			data: JSON.stringify({ absent: true })
+		});
 	});
 	
 });
