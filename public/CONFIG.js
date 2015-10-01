@@ -55,7 +55,7 @@ window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
-	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game'],
+	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game', 'Sight Word Ninja'],
 	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!']
 };
 
