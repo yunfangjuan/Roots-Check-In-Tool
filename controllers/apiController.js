@@ -111,7 +111,9 @@ var apiController = {
 					if (scanned_data && currentEvent && currentEvent.location === scanned_data && index > -1) {
 						setTimeout(function(modelItem, ind) {
 							modelItem.groveCalendar[ind].checkedIn = true;
-							modelItem.save();
+							modelItem.save(function(err, result) {
+								console.log('result of save:', err, result)
+							});
 						}, difference, user, index);
 					}
 
