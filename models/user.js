@@ -15,13 +15,19 @@ var userSchema = mongoose.Schema ({
 			location: String,
 			start: String,
 			end: String,
-			activity: String,
-			description: String,
-			focus_area: String,
-			summary: String
 		}],
 		scannedLocation: String,
 		correct: Boolean
+	},
+	recentCorrectScan: {
+		time: String,
+		event: [{
+			eventId: String,
+			location: String,
+			start: String,
+			end: String,
+		}],
+		scannedLocation: String,
 	},
 	calendar: [{
 		eventId: String,

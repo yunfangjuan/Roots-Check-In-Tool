@@ -92,11 +92,10 @@ iframe[src^="https://apis.google.com"] {
 	text-align: right
 }
 
-.studentLocationDisplay{
+.studentLocationDisplay {
 	width:15%;
 	height: 200px !important;
 }
-
 
 .student-tracker-title {
 	margin:auto;
@@ -115,9 +114,8 @@ iframe[src^="https://apis.google.com"] {
 	padding:7px;
 	color:#484848;
 	float: left;
-
-
 }
+
 .Lost {
 	background-color: rgba(137, 171, 66, 0.26);
 	height: 200px;
@@ -164,15 +162,13 @@ iframe[src^="https://apis.google.com"] {
 
 .collapse.in {
 	background-color: #fff;
-
-
 }
 
 .panel {
 	border:none;
 }
 
-.text-primary{
+.text-primary, .text-danger {
 	white-space:nowrap;
 }
 
@@ -183,10 +179,10 @@ iframe[src^="https://apis.google.com"] {
 .last-scan-info {
    position: relative;
    font-size: 12px;
-
+	top: 105px;
 }
 
-.correct-location-info{
+.correct-location-info {
 	position: relative;
 	top:105px;
     font-size: 12px;
@@ -201,8 +197,6 @@ iframe[src^="https://apis.google.com"] {
 	bottom: 5px;
 	right: 10px;
 }
-
-
 
 @media only screen (max-width:500px) {
 	.Lost {

@@ -1,42 +1,39 @@
-var Scan = require('../models/Scan');
-var User = require('../models/user');
+// Requires
 var _ = require('lodash');
 var moment = require('moment');
+var Scan = require('../models/Scan');
+var User = require('../models/user');
 
+
+// Globals, using process.env (set in minutes) with some default values
 var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 6;
 TRANSITION_LENGTH = TRANSITION_LENGTH * 60 * 1000;
 var EVENT_LENGTH = Number(process.env.EVENT_LENGTH) || 15;
 EVENT_LENGTH = EVENT_LENGTH * 60 * 1000;
 
-// Helper function to get the current event for a student
-function getCurrentEvent(user, scanned_data) {
-	// To find a current event, we want to look for an event that we are transitioning into or that is currently going on (but not transitioning out of). e.g. with transition time of 5 minutes and event of 15, from 8:55 - 9:10 the current event would be one that that goes from 9 - 9:15
-	var currentEvent = _.find(user.calendar, function(event) {
-		var start = moment( event.start ).subtract(TRANSITION_LENGTH, 'ms');
-		var end = moment( event.end ).subtract(TRANSITION_LENGTH, 'ms' );
-		return moment( new Date() ).isBetween( start, end );
-	});
+// Utils, bound to correct values for event and transition length
+var startTimes = _.partial( require('../utils/StartTimes'), EVENT_LENGTH, TRANSITION_LENGTH ); 
+var getCurrentEvent = _.partialRight( require('../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH );
 
-	var index = -1;
+/*
+	Currently not using this implementation, but keeping this around if we want to switch back. This waits until the event is over before checking a student in. 
 
-	// if there's not a current google calendar event, get the next grove calendar event
-	if (!currentEvent) {
-		index = _.findIndex(user.groveCalendar, function(event) {
-			return !event.checkedIn; 
+	@param userModel: A mongoose User model item corresponding to the student
+	@param index: A number representing the index of grove calendar event to check in
+*/
+function checkInLater(userModel, index) {
+	// The timer should be set to go off when the event is being transitioned out of, i.e. how long from now the event started, adding event length, subtracting transition length
+	var diff = startTimes() + EVENT_LENGTH - TRANSITION_LENGTH;
+
+	setTimeout(function(modelItem, ind) {
+		modelItem.groveCalendar[ind].checkedIn = true;
+		modelItem.save(function(err, result) {
+			console.log('result of save:', err, result)
 		});
-
-		if (index > -1 && user.groveCalendar && user.groveCalendar.length) {
-			currentEvent = user.groveCalendar[index];
-		} else {
-			currentEvent = null;
-		}
-	}
-
-	return { event: currentEvent, index: index };
+	}, diff, userModel, index);	
 }
 
 var apiController = {
-
 	// Return all users
 	getUsers: function(req, res) {
 		User.find({}, function(err, users) {
@@ -61,100 +58,77 @@ var apiController = {
 		});
 	},
 
-	// On receiving a scan, save it, and then add it to the student who scanned in
+	/*
+		On receiving a scan, we need to do several things:
+		1. Check if the scan is correct.
+		2. Broadcast the scan so the student tracker has up-to-date information and so that the student's application will close.
+		3. If there is a current event AND the student has already scanned into that event correctly, we do not want to overwrite the current and correct scan (this is to cover edge cases such as students checking into the correct location, then checking into the wrong one, which would throw off getCurrentEvent ).
+		4. In other circumstances, overwrite the students scan with the most recent one.
+		5. Redirect the student to the home page for either a SUCCESS or WHOOPS.
+	*/
 	saveScan: function(req, res, socket) {
 
 		var scanned_data = req.query.scanned_data;
 		var googleId = req.params.id;
 
 		if (scanned_data) {
-			var currentTime = moment();
-
 			User.findOne({googleId: googleId}, function(err, user) {
 				if (err) {
 					console.error(err);
 					res.status(500).send(err);
-				}
-				else {
-					var data = getCurrentEvent(user, scanned_data);
-					var currentEvent = data.event;
-					var index = data.index;
+				} else if (!user) {
+					res.status(404).send("Student not found");
+				} else {
+					/* 
+						Get the current event. If nothing is returned, that means either there is no event and no grove calendar (we send an error), or the student has checked into all of their grove events, in which case we will want to uncheck them all and start at the top.
+					*/
 
-					// If there's not a current event, check to see if there are any grove calendar events that are unchecked, otherwise if there is a grove calendar, uncheck all of them in, and start at top
-					if (!currentEvent && Array.isArray(user.groveCalendar) && user.groveCalendar.length) {
+					var currentEvent = getCurrentEvent(user);
+
+					if (!currentEvent && !_.isEmpty(user.groveCalendar) ) {
 						_.each(user.groveCalendar, function(event) {
 							event.checkedIn = false;
 						});
-						index = 0;
 						currentEvent = user.groveCalendar[0];
 					} else if (!currentEvent) {
 						res.status(500).send("Student has no Grove Calendar and no current event was found");
 					}
 
-					// Here, we are going to do the samemagic as the lost-kids file to find when the event ends
-					/* Split the hour based on process.env.EVENT_LENGTH and TRANSITION_LENGTH
-				    e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
-				    be the period during which the timeout would be set for 9:10 */
-				    var intervals = 60 / (EVENT_LENGTH / (60 * 1000)) + 1;
-				    var start_times = [];
-				    for (var i =0; i < intervals; i++) {
-				      start_times.push( moment( new Date() ).startOf('hour').add(i * EVENT_LENGTH - TRANSITION_LENGTH, 'ms'));
-				    }
-
-				    var event_end = _.find(start_times, function(t) {
-				        return currentTime.isBetween( t, moment(t).add( EVENT_LENGTH, 'ms' ) );
-				    }).add(EVENT_LENGTH, 'ms');
-
-					var difference = event_end.diff(currentTime);
-
-					// If the scanned data was correct, consider the event checked into once the event is done, and clear any times in case the student keeps checking into the same event
-					if (scanned_data && currentEvent && currentEvent.location === scanned_data && index > -1) {
-						setTimeout(function(modelItem, ind) {
-							modelItem.groveCalendar[ind].checkedIn = true;
-							modelItem.save(function(err, result) {
-								console.log('result of save:', err, result)
-							});
-						}, difference, user, index);
-					}
-
-					// Set correctness
-					var correct = (currentEvent && currentEvent.location === scanned_data);
+					// Was it correct?
+					var correct = currentEvent.location === scanned_data;
 				
 					var newScan = {
 						googleId: user.googleId,
 						name: user.name,
 						email: user.email,
 						image: user.image,
-						time: currentTime,
+						time: Date.now(),
 						scannedLocation: scanned_data,
 						event: [currentEvent],
 						correct: correct
 					};
 
-					Scan.create(newScan, function(err, scan) {
+					/*
+						We want to make sure the scan is broadcast even if there are issues saving it, so we broadcast before we save, and nothing needs be done upon saving.
+					*/
+					socket.emit('SCAN!', newScan);
+					Scan.create( newScan );
+
+					// Update the user
+					user.recentScan = newScan;
+					if (correct) {
+						user.recentCorrectScan = newScan;						
+					}
+
+					user.save( function( err, result) {
+						// Redirect the user based on whether the scan was correct or not. If there was an error saving the user, send that because we want them to try scanning in again.
 						if (err) {
 							console.error(err);
 							res.status(500).send(err);
-						}
-						else {
-							socket.emit('SCAN!', scan);
-							// Update the user
-							user.recentScan = newScan;
-							user.save(function(err, result){
-								if (err) {
-									console.error(err);
-									res.status(500).send(err);
-									// res.redirect('/error_saving');
-								} else {
-									// Redirect the student
-									if (scan.correct) {
-										res.redirect('/success');
-									} else {
-										res.redirect('/whoops')
-									}
-								}
-							});
-							
+						} else if (correct) {
+							res.redirect('/success');
+						} else {
+							res.redirect('/whoops');
 						}
 					});
 				}
@@ -172,11 +146,10 @@ var apiController = {
 				console.error(err);
 				res.status(500).send(err);
 			} else {
-				// Check the current event and index of the event, if there is no current event that means the student has scanned into all of their grove calendar events, in which case we should send back the first one, without unchecking them in to anything
-				var currentEvent = getCurrentEvent(user).event;
+				var currentEvent = getCurrentEvent(user);
 
-				if (currentEvent) { res.send(currentEvent); }
-				else if (user.groveCalendar && user.groveCalendar.length) { 
+				if (currentEvent) res.send(currentEvent);
+				else if (!_.isEmpty(user.groveCalendar) ) {
 					res.send(user.groveCalendar[0]);
 				} else {
 					res.status(404).send("Could not find next event");

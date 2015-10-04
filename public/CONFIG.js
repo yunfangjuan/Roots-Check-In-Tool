@@ -69,6 +69,10 @@ window.FOCUS_AREAS = {
 // Getting activity from google descriptions
 window.GET_ACTIVITY = function(description) {
 	
+	if (!description) {
+		return null;
+	}
+	
 	// Lower case description to ignore case on keywords 
 	description = description.toLowerCase();
 
