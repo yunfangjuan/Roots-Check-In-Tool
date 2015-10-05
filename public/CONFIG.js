@@ -136,7 +136,7 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('letter time')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/letter+time.jpg">';
 	}
-	else if (description.match('begining sounds')) {
+	else if (description.match('beginning sounds')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/beginning+sounds.png">';
 	}
 	else if (description.match('cvc')) {
