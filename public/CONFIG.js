@@ -149,7 +149,7 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/read+and+build.PNG">';
 	}
 	else if (description.match('sight word ninjas')) {
-		return 'img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
 	}
 	// For all of our predefined activities, if the name of the activity is in the summary somewhere, use that image
 	Object.keys(ACTIVITY_IMAGES).forEach( function(activity) {
