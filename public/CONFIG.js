@@ -77,10 +77,7 @@ window.GET_ACTIVITY = function(description) {
 	description = description.toLowerCase();
 
 	// If 'read' shows up in description
-	if (description.match('read')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
-	}
-	else if (description.match('book')) {
+	if (description.match('book')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
 	else if (description.match('st math')) {
@@ -140,7 +137,7 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('letter time')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/letter+time.jpg">';
 	}
-	else if (description.match('begining sounds')) {
+	else if (description.match('beginning sounds')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/beginning+sounds.png">';
 	}
 	else if (description.match('cvc')) {
@@ -151,6 +148,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('read and build')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/read+and+build.PNG">';
+	}
+	else if (description.match('read')) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
 	else if (description.match('sight word ninja')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
