@@ -31,7 +31,7 @@ module.exports = function(student, eventLength, transitionLength) {
 
 	var scan = student.recentCorrectScan;
 
-	if (scan && currentEventWindowStart.isBefore( scan.time ) ) {
+	if (scan && currentEventWindowStart.isBefore( Number(scan.time) ) ) {
 		// Return the correctly scanned into event
 		return scan.event[0];
 	} else {

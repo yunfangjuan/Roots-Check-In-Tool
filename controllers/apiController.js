@@ -128,8 +128,6 @@ var apiController = {
 						}
 					}
 
-
-
 					user.save( function( err, result) {
 						// Redirect the user based on whether the scan was correct or not. If there was an error saving the user, send that because we want them to try scanning in again.
 						if (err) {

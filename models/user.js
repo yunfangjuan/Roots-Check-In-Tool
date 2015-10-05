@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema ({
 	absent: Boolean,
 	// calendar_id: String
 	recentScan: {
-		time: String,
+		time: Number,
 		event: [{
 			eventId: String,
 			location: String,
@@ -20,7 +20,7 @@ var userSchema = mongoose.Schema ({
 		correct: Boolean
 	},
 	recentCorrectScan: {
-		time: String,
+		time: Number,
 		event: [{
 			eventId: String,
 			location: String,
