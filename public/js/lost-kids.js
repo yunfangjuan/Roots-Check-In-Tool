@@ -258,10 +258,9 @@ StudentLocationDisplay.prototype.onScan = function(scan) {
 	}
 	// If the scan does not match the location, the student is lost
 	else if (scan) {
-		this.currentLocation = scan.scannedLocation;
 		this.status = 'Lost';
 	}
-	// If there is no scan, the student is lost, but do not update current location
+	// If there is no scan, the student is lost, and remove their recent scan
 	else {
 		this.status = 'Lost';
 		this.recentScan = null;
