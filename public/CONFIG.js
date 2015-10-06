@@ -82,7 +82,7 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('sight word ninja')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
-	}w
+	}
 	else if (description.match('st math')) {
 		return '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">';
 	} 
