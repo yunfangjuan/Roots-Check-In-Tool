@@ -64,7 +64,7 @@ window.FOCUS_AREAS = {
 	'Fluency': '<i class="focus-area-image fa fa-comment fa-4x">',
 	'Mental Math': '<i class="focus-area-image fa fa-calculator fa-4x">',
 	'Noise Level': '<i class="focus-area-image fa fa-volume-up fa-4x">'
-};
+}
 
 // Getting activity from google descriptions
 window.GET_ACTIVITY = function(description) {
