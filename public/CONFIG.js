@@ -96,7 +96,7 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
 	}
 	else if (description.match('theatre')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readerstheater.PNG">';
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readerstheater.PNG">';
 	}
 	else if (description.match('writ')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
