@@ -24,6 +24,7 @@ window.LOCATION_IMAGES = {
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
+
 window.ACTIVITY_IMAGES = {
   'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">',
   'reading': '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
@@ -48,7 +49,7 @@ window.CREATOR_IMAGES = {
 	'Debbie Van Roy': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/debbie.jpg" class="creator-image">',
 	'Dominic Hernandez': '<img src=https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
 	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">'
-}
+};
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
@@ -64,7 +65,7 @@ window.FOCUS_AREAS = {
 	'Fluency': '<i class="focus-area-image fa fa-comment fa-4x">',
 	'Mental Math': '<i class="focus-area-image fa fa-calculator fa-4x">',
 	'Noise Level': '<i class="focus-area-image fa fa-volume-up fa-4x">'
-}
+};
 
 // Getting activity from google descriptions
 window.GET_ACTIVITY = function(description) {
