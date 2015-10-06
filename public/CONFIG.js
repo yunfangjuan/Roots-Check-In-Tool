@@ -24,7 +24,6 @@ window.LOCATION_IMAGES = {
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
-
 window.ACTIVITY_IMAGES = {
   'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">',
   'reading': '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
@@ -49,7 +48,7 @@ window.CREATOR_IMAGES = {
 	'Debbie Van Roy': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/debbie.jpg" class="creator-image">',
 	'Dominic Hernandez': '<img src=https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
 	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">'
-};
+}
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
@@ -57,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game', 'Sight Word Ninja'],
-	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', 'Build-a-word', 'Reader's Theater']
+	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word", 'Reader's Theater']
 };
 
 // The list of all possible Focus Areas, and their associated pictures
