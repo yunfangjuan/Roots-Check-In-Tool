@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', 'RazKids', 'ABC Phonics','Counting Game', 'Sight Word Ninja'],
-	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word", "Reader's Theater"]
+	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word", "Reader's Theatre"]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -95,7 +95,7 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('science')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
 	}
-	else if (description.match('theater')) {
+	else if (description.match('theatre')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readerstheater.PNG">';
 	}
 	else if (description.match('writ')) {
