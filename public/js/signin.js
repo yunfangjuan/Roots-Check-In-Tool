@@ -118,7 +118,7 @@ getCalendar = function(userData){
 					creator: event.creator.displayName || event.creator.email,
 					start: event.start.dateTime,
 					end: event.end.dateTime,
-					description: event.description,
+					activity: event.description,
 					summary: event.summary
 				};
 		});
