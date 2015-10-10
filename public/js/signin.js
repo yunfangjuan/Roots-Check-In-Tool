@@ -119,7 +119,7 @@ getCalendar = function(userData){
 					start: event.start.dateTime,
 					end: event.end.dateTime,
 					description: event.description,
-					activity: event.summary
+					summary: event.activity
 				};
 		});
 
