@@ -2,7 +2,7 @@
 window.EVENT_LENGTH = 5 * 60 * 1000;
 
 // Transition time between events. 5 minutes * 60s * 1000 ms.
-window.TRANSITION_LENGTH = 1 * 60 * 1000;
+window.TRANSITION_LENGTH = 2 * 60 * 1000;
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
