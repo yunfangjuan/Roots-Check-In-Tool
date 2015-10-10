@@ -91,7 +91,7 @@ function renderNextEvent(student) {
 	window.userData = student;
 
 	// Render the location image with the event data (some of which will not exist, depending on grove vs. google)
-	renderLocationImage( currentEvent.location, currentEvent.activity || currentEvent.description, currentEvent.creator, currentEvent.focus_area );
+	renderLocationImage( currentEvent.location, currentEvent.activity || currentEvent.summary, currentEvent.creator, currentEvent.focus_area );
 
 	// Render the prograss bar with the start time, which we get off a google event or using startTimes for grove calender events
 	var start = moment( currentEvent.start ) || moment( Date.now() ).add( startTimes(), 'ms' );
@@ -119,7 +119,7 @@ getCalendar = function(userData){
 					start: event.start.dateTime,
 					end: event.end.dateTime,
 					description: event.description,
-					activity: event.summary
+					summary: event.summary
 				};
 		});
 
