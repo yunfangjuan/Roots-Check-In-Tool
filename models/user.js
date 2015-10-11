@@ -35,7 +35,7 @@ var userSchema = mongoose.Schema ({
 		creator: String,
 		start: String,
 		end: String,
-		description: String,
+		activity: String,
 		summary: String,
 	}],
 	groveCalendar: [{
