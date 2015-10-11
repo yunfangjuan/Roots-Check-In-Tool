@@ -114,13 +114,13 @@ getCalendar = function(userData){
 		userData.calendar = _.map(response.items, function(event){
 			return {
 					eventId: event.id,
-					location: event.location,
+					//location: event.location,
 					creator: event.creator.displayName || event.creator.email,
 					start: event.start.dateTime,
 					end: event.end.dateTime,
 					description: event.description,
-					//summary: event.summary
-					activity: event.summary
+					summary: event.summary
+				
 				};
 		});
 
