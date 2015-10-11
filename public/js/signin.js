@@ -63,12 +63,12 @@ renderLocationImage = function(eventLocation, eventActivity, eventCreator, focus
 
 	$('#activityText').empty().append(eventActivity || '');
 
-/*	if (eventCreator) {
+	if (eventCreator) {
 		$('#creatorImage').empty().append( CREATOR_IMAGES[eventCreator] );
 	} else if (focusArea) {
 		$('#creatorImage').empty().append( FOCUS_AREAS[focusArea] );
 		$('#creatorText').empty().append(focusArea);
-	}*/
+	}
 }
 
 /*
