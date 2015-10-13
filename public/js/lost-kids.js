@@ -104,7 +104,7 @@ var StudentLocationDisplay = function(student) {
 			recent = true;
 		}
 		// If grove calendar, check against length of events
-		else if (event && !event.end && moment(scan.time).add(EVENT_LENGTH, 'ms').isAfter( Date.now() ) ) {
+		else if (event && !event.end && moment(scan.time).add(EVENT_LENGTH- TRANSITION_LENGTH, 'ms').isAfter( Date.now() ) ) {
 			recent = true;
 		}
 
