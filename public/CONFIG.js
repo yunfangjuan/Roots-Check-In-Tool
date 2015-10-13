@@ -137,8 +137,8 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('tower')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/tower.PNG">';
 	}
-	else if (description.match('word')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/read+and+build.PNG">';
+	else if (description.match('build-a-word')) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android_L/PNG/48/Baby/brick-48.png">';
 	}
  	else if (description.match('sound round')) {
  		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sound+roudn.png">';
