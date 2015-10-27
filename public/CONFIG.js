@@ -92,6 +92,9 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('blocks')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/blocks.PNG">';
 	} 
+	else if (description.match('reading together')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readingtogether.png">';
+	} 
 	else if (description.match('dump')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dumptruck.jpg">';
 	}
