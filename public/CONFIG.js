@@ -89,7 +89,7 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('cupcake')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/cupcake.PNG">';
 	}
-	else if (description.match('problem of the day!')) {
+	else if (description.match('problem of the day')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/problem+of+the+day.PNG">';
 	}
 	else if (description.match('skip counting')) {
