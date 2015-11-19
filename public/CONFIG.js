@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", ]
+	'Flex Center':['Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -85,6 +85,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('match up')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/match+up.PNG">';
+	}
+	else if (description.match('count and clip')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/countandclip.PNG">';
 	}
 	else if (description.match('match letter')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/matchletter.jpg">';
