@@ -54,9 +54,9 @@ window.CREATOR_IMAGES = {
 window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
-	'Maker Center': ['Blocks', 'Legos'],
+	'Maker Center': ['Blocks', 'Legos','We Are Denver Architechts'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -97,6 +97,15 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('cupcake')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/cupcake.PNG">';
+	}
+	else if (description.match('we are denver')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/denverskyline.jpg">';
+	}
+	else if (description.match('duolingo')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/duolingo.png">';
+	}
+	else if (description.match('true or false')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/trueorfalse.PNG">';
 	}
 	else if (description.match('problem of the day')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/problem+of+the+day.PNG">';
@@ -163,6 +172,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('personal narrative')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/personal+narratives.PNG">';
+	}
+	else if (description.match('number practice')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/numberpractice.PNG">';
 	}
 	else if (description.match('tower')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/tower.PNG">';
