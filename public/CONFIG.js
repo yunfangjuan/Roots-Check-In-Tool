@@ -83,6 +83,15 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('sight word ninja')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
 	}
+	else if (description.match('mystery box')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mysterybox.png">';
+	}
+	else if (description.match("español")) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dinosaur+dots.PNG">';
+	}
+	else if (description.match("science lab")) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sciencelab.jpg">';
+	}
 	else if (description.match('dinosaur dots')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dinosaur+dots.PNG">';
 	}	
