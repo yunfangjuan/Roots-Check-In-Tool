@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos','We Are Denver Architechts'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -83,6 +83,9 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('sight word ninja')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
 	}
+	else if (description.match('dinosaur dots')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dinosaur+dots.PNG">';
+	}	
 	else if (description.match('match up')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/match+up.PNG">';
 	}
