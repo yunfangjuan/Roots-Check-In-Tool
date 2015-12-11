@@ -87,7 +87,7 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mysterybox.png">';
 	}
 	else if (description.match("español")) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dinosaur+dots.PNG">';
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/espanol.jpg">';
 	}
 	else if (description.match("science lab")) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sciencelab.jpg">';
