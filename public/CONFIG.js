@@ -8,7 +8,7 @@ window.TRANSITION_LENGTH = 6 * 60 * 1000;
 // TODO:  add images for all locations, with keys that are the name of the location
 window.LOCATION_IMAGES = {
   'library center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/green-paint-splatter-md.png">',
-  'maker center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/purple+paint.png">',
+  'maker space': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/purple+paint.png">',
   'ipad center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/yellow-splash-ink-md.png">',
   'writing center':'<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/ink-splash-orange-hi.png">',
   'flex center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/red.png">',
@@ -54,7 +54,7 @@ window.CREATOR_IMAGES = {
 window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
-	'Maker Center': ['Blocks', 'Legos','We Are Denver Architechts'],
+	'Maker Space': ['Blocks', 'Legos','We Are Denver Architechts'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
 	'Flex Center':["What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
