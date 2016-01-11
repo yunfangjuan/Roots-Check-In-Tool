@@ -28,7 +28,7 @@ var googleController = {
 				User.create({
 					email: data.email,
 					googleId: data.id,
-					name: data.name,
+					name: data.displayName,
 					image: data.image,
 					calendar: data.calendar
 				}, function(err, user) {
