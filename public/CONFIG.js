@@ -8,7 +8,7 @@ window.TRANSITION_LENGTH = 6 * 60 * 1000;
 // TODO:  add images for all locations, with keys that are the name of the location
 window.LOCATION_IMAGES = {
   'library center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/green-paint-splatter-md.png">',
-  'maker space': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/purple+paint.png">',
+  'maker center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/purple+paint.png">',
   'ipad center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/yellow-splash-ink-md.png">',
   'writing center':'<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/ink-splash-orange-hi.png">',
   'flex center': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/red.png">',
