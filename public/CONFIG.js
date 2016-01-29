@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Space': ['Blocks', 'Legos','We Are Denver Architechts'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['happy handwriting', 'Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['Happy Handwriting', 'Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
