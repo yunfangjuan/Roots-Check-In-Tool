@@ -56,7 +56,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Space': ['Blocks', 'Legos','We Are Denver Architechts'],
 	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['Happy Handwriting', 'Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -134,6 +134,9 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('problem of the day')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/problem+of+the+day.PNG">';
 	}
+	else if (description.match('happy handwriting')) { 
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">';
+	}
 	else if (description.match('skip counting')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/skipcountingpuzzle.PNG">';
 	}
@@ -154,9 +157,6 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('math')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">';
-	}
-	else if (description.match('happy handwriting')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">';
 	}
 	else if (description.match('dance')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">';
