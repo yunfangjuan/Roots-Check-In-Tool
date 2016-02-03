@@ -70,7 +70,7 @@ window.FOCUS_AREAS = {
 window.GET_ACTIVITY = function(description) {
 	
 	if (!description) {
-		return "cheese";
+		return null;
 	}
 	
 	// Lower case description to ignore case on keywords 
