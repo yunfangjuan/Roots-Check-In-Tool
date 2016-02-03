@@ -25,10 +25,10 @@ window.LOCATION_IMAGES = {
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
 window.ACTIVITY_IMAGES = {
-  'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">',
-  'reading': '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
-  'writing': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">',
-  'science': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">',
+  'happy handwriting': '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">',
+  'st math': '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">',
+  'ST Math': '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">',
+  'Happy Handwriting': '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">',
   'dance': '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">'
 };
 
