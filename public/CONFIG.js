@@ -49,7 +49,7 @@ window.CREATOR_IMAGES = {
 	'Dominic Hernandez': '<img src=https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
 	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">',
 	'Daniel Rondeau': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/rondeau.jpg" class="creator-image">'
-}
+};
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
@@ -65,7 +65,7 @@ window.FOCUS_AREAS = {
 	'Fluency': '<i class="focus-area-image fa fa-comment fa-4x">',
 	'Mental Math': '<i class="focus-area-image fa fa-calculator fa-4x">',
 	'Noise Level': '<i class="focus-area-image fa fa-volume-up fa-4x">'
-}
+};
 
 // Getting activity from google descriptions
 window.GET_ACTIVITY = function(description) {
@@ -252,4 +252,4 @@ window.GET_ACTIVITY = function(description) {
  			return ACTIVITY_IMAGES[activity];
  		}
  	});
- }
+};
