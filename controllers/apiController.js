@@ -114,16 +114,18 @@ var apiController = {
 					socket.emit('SCAN!', newScan);
 					Scan.create( newScan );
 
-					if ((newScan.event[0].summary == undefined && newScan.event[0].activity == undefined) ||
-						(newScan.event[0].summary === "" && newScan.event[0].activity === "")) {
-						console.log(
-							newScan.name,
-							newScan.time,
-							newScan.event[0].location,
-							newScan.event[0].start,
-							newScan.event[0].end,
-							newScan.scannedLocation
-						)
+
+					if (newScan.event[0].summary == undefined || newScan.event[0].summary == "") {
+						if (newScan.event[0].activity == undefined || newScan.event[0].activity === "") {
+							console.log(
+								newScan.name,
+								newScan.time,
+								newScan.event[0].location,
+								newScan.event[0].start,
+								newScan.event[0].end,
+								newScan.scannedLocation
+							)
+						}
 					}
 
 					// Update the user
