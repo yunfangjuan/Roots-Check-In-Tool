@@ -57,7 +57,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos','We Are Denver Architects'],
 	'iPad Center': ['ST Math', 'Big Universe', "Kids A-Z", 'RazKids','ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['Sight Word Trains', 'Math Fact Master', 'Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['I CAN Count','Sight Word Trains', 'Math Fact Master', 'Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -95,6 +95,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match("big universe")) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/biguniverse.PNG">';	
+	}
+	else if (description.match("can count")) {
+		return '<img class="activity-image" src="<img src="https://maxcdn.icons8.com/iOS7/PNG/50/Food/tin_can-50.png" title="Tin Can" width="50">';	
 	}
 	else if (description.match('cross and count')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/crossandcount.PNG">';	
