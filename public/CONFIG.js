@@ -97,7 +97,7 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/biguniverse.PNG">';	
 	}
 	else if (description.match("can count")) {
-		return '<img class="activity-image" src="<img src="https://maxcdn.icons8.com/iOS7/PNG/50/Food/tin_can-50.png" title="Tin Can" width="50">';	
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/50/Food/tin_can-50.png" title="Tin Can" width="50">';	
 	}
 	else if (description.match('cross and count')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/crossandcount.PNG">';	
