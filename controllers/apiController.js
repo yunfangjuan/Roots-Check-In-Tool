@@ -85,6 +85,7 @@ var apiController = {
 						currentEvent = user.groveCalendar[0];
 					} else if (!currentEvent) {
 						res.status(500).send("Student has no Grove Calendar and no current event was found");
+						return false;
 					}
 
 					if (scanned_data && currentEvent && currentEvent.location === scanned_data && index > -1) {
