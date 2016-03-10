@@ -174,9 +174,6 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('dance')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">';
 	}
-	else if (description.match('math fact master')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
-	}
 	else if (description.match('science')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
 	}
