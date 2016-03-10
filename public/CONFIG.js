@@ -25,10 +25,10 @@ window.LOCATION_IMAGES = {
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
 window.ACTIVITY_IMAGES = {
-  'math': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/math-64.png">',
-  'reading': '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">',
-  'writing': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">',
-  'science': '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">',
+  'happy handwriting': '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">',
+  'st math': '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">',
+  'ST Math': '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">',
+  'Happy Handwriting': '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">',
   'dance': '<img class="activity-image" src="https://maxcdn.icons8.com/Android/PNG/64/Sports/dancing-64.png">'
 };
 
@@ -47,16 +47,17 @@ window.CREATOR_IMAGES = {
 	'Mahdyeh Nowkhandan': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mahdyeh.jpg" class="creator-image">',
 	'Debbie Van Roy': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/debbie.jpg" class="creator-image">',
 	'Dominic Hernandez': '<img src=https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dominic.jpg" class="creator-image">',
-	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">'
-}
+	'Idali Franco': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/idali.jpg" class="creator-image">',
+	'Daniel Rondeau': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/rondeau.jpg" class="creator-image">'
+};
 
 // The list of all possible grove calendar activities
 window.GROVE_ACTIVITIES = {
 	'Library Center': ['Level Reading', 'Buddy Reading','Story Book'],
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
-	'Maker Center': ['Blocks', 'Legos'],
-	'iPad Center': ['ST Math', "Kids A-Z", 'ABC Phonics','Counting Game', 'Sight Word Ninja'],
-	'Flex Center':['Math Fact Master','Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word", "Reader's Theater"]
+	'Maker Center': ['Blocks', 'Legos','We Are Denver Architects'],
+	'iPad Center': ['ST Math', 'Big Universe', "Kids A-Z", 'RazKids','ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
+	'Flex Center':['I CAN Count','Sight Word Trains', 'Math Fact Master', 'Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -64,7 +65,7 @@ window.FOCUS_AREAS = {
 	'Fluency': '<i class="focus-area-image fa fa-comment fa-4x">',
 	'Mental Math': '<i class="focus-area-image fa fa-calculator fa-4x">',
 	'Noise Level': '<i class="focus-area-image fa fa-volume-up fa-4x">'
-}
+};
 
 // Getting activity from google descriptions
 window.GET_ACTIVITY = function(description) {
@@ -80,8 +81,89 @@ window.GET_ACTIVITY = function(description) {
 	if (description.match('book')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
+	else if (description.match('sight word ninja')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
+	}
+	else if (description.match('math fact master')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
+	}
+	else if (description.match('sight word trains')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sight+word+trains.PNG">';
+	}
+	else if (description.match("what's going on")) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/what%27s+going+on.PNG">';	
+	}
+	else if (description.match("big universe")) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/biguniverse.PNG">';	
+	}
+	else if (description.match("can count")) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/50/Food/tin_can-50.png" title="Tin Can" width="50">';	
+	}
+	else if (description.match('cross and count')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/crossandcount.PNG">';	
+	}
+	else if (description.match('cvc scramble')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/cvc+scramble.PNG">';
+	}
+	else if (description.match('mystery box')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mysterybox.png">';
+	}
+	else if (description.match('español')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/espanol.jpg">';
+	}
+	else if (description.match('science lab')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sciencelab.jpg">';
+	}
+	else if (description.match('dinosaur dots')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dinosaur+dots.PNG">';
+	}	
+	else if (description.match('match up')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/match+up.PNG">';
+	}
+	else if (description.match('count and clip')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/countandclip.PNG">';
+	}
+	else if (description.match('match letter')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/matchletter.jpg">';
+	}
+	else if (description.match('meatball madness')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/meatballmadness.PNG">';
+	}
+	else if (description.match('cupcake')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/cupcake.PNG">';
+	}
+	else if (description.match('we are denver')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/denverskyline.jpg">';
+	}
+	else if (description.match('duolingo')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/duolingo.png">';
+	}
+	else if (description.match('addition dice')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/addition+dice.PNG">';
+	}
+	else if (description.match('true or false')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/trueorfalse.PNG">';
+	}
+	else if (description.match('problem of the day')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/problem+of+the+day.PNG">';
+	}
+	else if (description.match('happy handwriting')) { 
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/happyhands.PNG">';
+	}
+	else if (description.match('skip counting')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/skipcountingpuzzle.PNG">';
+	}
 	else if (description.match('st math')) {
 		return '<img class="activity-image" src="https://lh6.googleusercontent.com/naI3Chys6t4Kd2K_LCssvuxfuWacggw4UVq2aw46OYtl-9nXFJcGf1x_AVjjuiJcJLYJLfDnFw=s128-h128-e365">';
+	} 
+	else if (description.match('ice cream capitals')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/icecreamcapitals.PNG">';
+	}
+	else if (description.match('blocks')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/blocks.PNG">';
+	} 
+	else if (description.match('reading together')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readingtogether.png">';
 	} 
 	else if (description.match('dump')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dumptruck.jpg">';
@@ -98,8 +180,8 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('science')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.png">';
 	}
-	else if (description.match('theater')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/test_tube-64.https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readerstheater.PNG">';
+	else if (description.match('theatre')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/readerstheater.PNG">';
 	}
 	else if (description.match('writ')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Editing/ball_point_pen-64.png">';
@@ -134,11 +216,14 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('personal narrative')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/personal+narratives.PNG">';
 	}
+	else if (description.match('number practice')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/numberpractice.PNG">';
+	}
 	else if (description.match('tower')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/tower.PNG">';
 	}
-	else if (description.match('word')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/read+and+build.PNG">';
+	else if (description.match('build-a-word')) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Android_L/PNG/48/Baby/brick-48.png">';
 	}
  	else if (description.match('sound round')) {
  		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sound+roudn.png">';
@@ -161,11 +246,14 @@ window.GET_ACTIVITY = function(description) {
 	else if (description.match('read')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/iOS7/PNG/75/Science/literature-75.png">';
 	}
-	else if (description.match('sight word ninja')) {
-		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
+	else if (description.match('dreambox')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/dreambox.PNG">';
 	}
 	else if (description.match('kids')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/kidsaz.PNG">';
+	}
+	else if (description.match('pattern block pictures')) {
+		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/patternblockpictures.PNG">';
 	}
 	else if (description.match('sight word superstar!')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordsuperstar.PNG">';
@@ -176,4 +264,4 @@ window.GET_ACTIVITY = function(description) {
  			return ACTIVITY_IMAGES[activity];
  		}
  	});
- }
+};
