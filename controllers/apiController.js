@@ -68,7 +68,7 @@ var apiController = {
 	*/
 	saveScan: function(req, res, socket) {
 
-		var scanned_data = req.query.scanned_data;
+		var scanned_data = req.query.scanned_data.replace('+', ' ');
 		var googleId = req.params.id;
 
 		if (scanned_data) {

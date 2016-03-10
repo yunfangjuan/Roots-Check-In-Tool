@@ -13,6 +13,7 @@ var userSchema = mongoose.Schema ({
 		event: [{
 			eventId: String,
 			location: String,
+			activity: String,
 			start: String,
 			end: String,
 		}],
@@ -24,6 +25,7 @@ var userSchema = mongoose.Schema ({
 		event: [{
 			eventId: String,
 			location: String,
+			activity: String,
 			start: String,
 			end: String,
 		}],
