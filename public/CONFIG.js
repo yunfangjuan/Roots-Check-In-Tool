@@ -20,7 +20,7 @@ window.LOCATION_IMAGES = {
   'forest': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/blue-alphabet-letter-f.png">',
   'holly': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/holly.png">',
   'playground': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/playground.gif">'
-};"https://maxcdn.icons8.com/windows8/PNG/64/Science/equal_sign-64.png" title="Equal Sign" width="64"
+};
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
