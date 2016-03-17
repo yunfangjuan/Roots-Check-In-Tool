@@ -85,7 +85,7 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
 	}
 	else if (description.match('legos')) {
-		return '<img class="activity-image" src=""https://maxcdn.icons8.com/Color/PNG/48/Logos/lego-48.png" title="Lego" width="48">';
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Color/PNG/48/Logos/lego-48.png" title="Lego" width="48">';
 	}
 	else if (description.match('math fact master')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
