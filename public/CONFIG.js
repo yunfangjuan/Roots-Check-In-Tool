@@ -20,7 +20,7 @@ window.LOCATION_IMAGES = {
   'forest': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/blue-alphabet-letter-f.png">',
   'holly': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/holly.png">',
   'playground': '<img class="location-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/playground.gif">'
-};
+};"https://maxcdn.icons8.com/windows8/PNG/64/Science/equal_sign-64.png" title="Equal Sign" width="64"
 
 // Images for the various activity / descriptions
 // TODO: add images for all activities, with keys that are the name of the activity
@@ -85,13 +85,13 @@ window.GET_ACTIVITY = function(description) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sightwordninja.PNG">';
 	}
 	else if (description.match('legos')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/Color/PNG/48/Logos/lego-48.png" title="Lego" width="48">';
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Color/PNG/96/Logos/lego-96.png" title="Lego" width="48">';
 	}
 	else if (description.match('math fact master')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
 	}
 	else if (description.match('number sentences')) {
-		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/48/Science/equal_sign-48.png" title="Equal Sign" width="48">';
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/equal_sign-64.png" title="Equal Sign" width="64">';
 	}
 	else if (description.match('sight word trains')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sight+word+trains.PNG">';
