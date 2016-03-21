@@ -38,10 +38,8 @@ window.CREATOR_IMAGES = {
 	'Anna Stringfield': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/anna.jpg" class="creator-image">',
 	'Leksy Wolk': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/leksy.jpg" class="creator-image">',
 	'Mackenzie Wagner': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mackenzie.jpg" class="creator-image">',
-	'Julia Quintanilla': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/julia.jpg" class="creator-image">',
 	'Eve Bunevich': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/eve.jpg" class="creator-image">',
 	'Jonathan Hanover': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/jon.jpg" class="creator-image">',
-	'Marty Cech': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/marty.jpg" class="creator-image">',
 	'Megan Miles': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/megan.jpg" class="creator-image">',
 	'Samantha Gambino': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/sam.jpg" class="creator-image">',
 	'Mahdyeh Nowkhandan': '<img src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/mahdyeh.jpg" class="creator-image">',
@@ -89,6 +87,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('math fact master')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
+	}
+	else if (description.match('screening')) {
+		return '<img class="activity-image" src="http://www.jeffjonesillustration.com/images/illustration/01126-see-hear-eyes-and-ears.jpg">';
 	}
 	else if (description.match('number sentences')) {
 		return '<img class="activity-image" src="https://maxcdn.icons8.com/windows8/PNG/64/Science/equal_sign-64.png" title="Equal Sign" width="64">';
