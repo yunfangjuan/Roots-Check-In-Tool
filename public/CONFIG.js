@@ -55,7 +55,7 @@ window.GROVE_ACTIVITIES = {
 	'Writing Center':["Writer's Workshop", 'Personal Narrative'],
 	'Maker Center': ['Blocks', 'Legos','We Are Denver Architects'],
 	'iPad Center': ['ST Math', 'Big Universe', 'Tynker',"Kids A-Z", 'RazKids','ABC Phonics','Counting Game', 'Sight Word Ninja', 'Dreambox'],
-	'Flex Center':['I CAN Count','Number Sentences','Sight Word Trains', 'Math Fact Master', 'Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
+	'Flex Center':['I CAN Count','Extra Capital Experts','Number Sentences','Sight Word Trains', 'Math Fact Master', 'Happy Handwriting','Cross and Count', 'CVC Scramble', 'Addition Dice', "What's going on?", 'Dinosaur Dots','Number Practice', "True or False", 'Duolingo', 'Count and Clip', 'Dump Truck Math','Build A Tower', 'Rhyming', 'Beginning Sounds', 'CVC', 'Read and Build!', "Build-a-word!", "Reader's Theatre", 'Skip Counting Puzzle', "Sight Word Superstar!", "Problem of the day!", "Match Up!", "Cupcake Wars!","Pattern Block Pictures", "Match Letter!", "Meatball Madness!", "Ice Cream Capitals" ]
 };
 
 // The list of all possible Focus Areas, and their associated pictures
@@ -90,6 +90,9 @@ window.GET_ACTIVITY = function(description) {
 	}
 	else if (description.match('math fact master')) {
 		return '<img class="activity-image" src="https://s3-us-west-2.amazonaws.com/roots-checkin/assets/math+fact+monster.PNG">';
+	}
+	else if (description.match('extra capital experts')) {
+		return '<img class="activity-image" src="https://maxcdn.icons8.com/Color/PNG/96/Sports/trophy-96.png" title="Trophy" width="48">';
 	}
 	else if (description.match('screening')) {
 		return '<img class="activity-image" src="http://www.jeffjonesillustration.com/images/illustration/01126-see-hear-eyes-and-ears.jpg">';
