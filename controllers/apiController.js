@@ -6,7 +6,7 @@ var User = require('../models/user');
 
 
 // Globals, using process.env (set in minutes) with some default values
-var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 6;
+var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 5;
 TRANSITION_LENGTH = TRANSITION_LENGTH * 60 * 1000;
 var EVENT_LENGTH = Number(process.env.EVENT_LENGTH) || 15;
 EVENT_LENGTH = EVENT_LENGTH * 60 * 1000;
