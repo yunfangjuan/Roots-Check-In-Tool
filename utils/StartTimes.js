@@ -1,25 +1,32 @@
 var _      = require('lodash');
 var moment = require('moment');
 	
-/* Split the hour based on EVENT_LENGTH and TRANSITION_LENGTH
-e.g. if events go for 15 with 5 min transition, 8:55 - 9:10 would
-be the period during which we would show a student that an event
-is starting at 9:00.
+/* 
+ * Find the closet time increment for transition length
+ * For example, if transition length is 5 minute, now is 9:46. The closet start time is 9:50
 
-Take in event and transition length as parameters so this method can be used in a uniform way on both client and server. */
+  Take in event and transition length as parameters so this method can be used in a uniform way on both client and server. 
+  @params: DEPRECATED eventLength: event length in milliseconds
+  @params: transitionLength: also in milliseconds
+*/ 
 module.exports = function(eventLength, transitionLength) {
-	var currentTime = moment( Date.now() );
-	var intervals = 60 / (eventLength / (60 * 1000)) + 1;
+	var currentTime = moment(Date.now());
+  //if transitionLength = 5 minutes. intervals = 13
+	var intervals = 60 / (transitionLength / (60 * 1000)) + 1; 
 	var start_times = [];
-	for (var i =0; i < intervals; i++) {
+	for (var i = 0; i < intervals; i++) {
 		// Remember to use new moment object here for each iteration so as not to override currentTime
-		start_times.push( moment( Date.now() ).startOf('hour').add(i * eventLength - transitionLength, 'ms'));
+		start_times.push(currentTime.startOf('hour').add(i * transitionLength, 'ms'));
 	}
 
-	// We return the difference between the start time and current time. If it is negative, we are in an event span. If it is positive, we are in a transition period.
-	var event_start = _.find(start_times, function(t) {
-		return currentTime.isBetween( t, moment(t).add( eventLength, 'ms' ) );
-	}).add(transitionLength, 'ms');
+	// We return the next event start time based on transition length
+  // For example in the case transition time is 5 minutes, 
+  // if currentTime is 9:03. the eventStart will be 9:05
+  //                   8:57, the eventStart will be 9:00
+  //                   8:03,                        8:05
+	var eventStart = _.find(start_times, function(t) {
+		return currentTime.isBetween(t, moment(t).add(transitionLength, 'ms'));
+	});
 
-	return event_start.diff(currentTime);
+	return eventStart;
 }

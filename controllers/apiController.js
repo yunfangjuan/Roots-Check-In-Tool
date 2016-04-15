@@ -20,10 +20,11 @@ var getCurrentEvent = _.partialRight( require('../utils/GetCurrentEvent'), EVENT
 
 	@param userModel: A mongoose User model item corresponding to the student
 	@param index: A number representing the index of grove calendar event to check in
+  TODO: Remove the following function. It won't work at all. 
 */
 function checkInLater(userModel, index) {
 	// The timer should be set to go off when the event is being transitioned out of, i.e. how long from now the event started, adding event length, subtracting transition length
-	var diff = startTimes() + EVENT_LENGTH - TRANSITION_LENGTH;
+	var diff = startTimes() - moment(Date.now()) + EVENT_LENGTH - TRANSITION_LENGTH;
 
 	setTimeout(function(modelItem, ind) {
 		modelItem.groveCalendar[ind].checkedIn = true;
@@ -85,12 +86,7 @@ var apiController = {
 
 					var currentEvent = getCurrentEvent(user);
 
-					if (!currentEvent && !_.isEmpty(user.groveCalendar) ) {
-						_.each(user.groveCalendar, function(event) {
-							event.checkedIn = false;
-						});
-						currentEvent = user.groveCalendar[0];
-					} else if (!currentEvent) {
+					if (!currentEvent) {
 						res.status(500).send("Student has no Grove Calendar and no current event was found");
 					}
 
@@ -170,10 +166,9 @@ var apiController = {
 			} else {
 				var currentEvent = getCurrentEvent(user);
 
-				if (currentEvent) res.send(currentEvent);
-				else if (!_.isEmpty(user.groveCalendar) ) {
-					res.send(user.groveCalendar[0]);
-				} else {
+				if (currentEvent) {
+          res.send(currentEvent);
+        }  else {
 					res.status(404).send("Could not find next event");
 				}
 			}

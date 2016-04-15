@@ -252,7 +252,7 @@ StudentLocationDisplay.prototype.onScan = function(scan) {
 		this.status = 'Found';
 
 		// Get time until the event is over, either based on the event's end for google calendar events or the startTimes util for grove calendar events
-		var difference = scan.event[0].end ? moment(scan.event[0].end).subtract( TRANSITION_LENGTH, 'ms').diff( Date.now() ) : startTimes() + EVENT_LENGTH - TRANSITION_LENGTH;
+		var difference = moment(scan.event[0].end).subtract(TRANSITION_LENGTH, 'ms').diff(Date.now() );
 		
 		this.transitionTimeout = window.setTimeout( self.onScan.bind(self, null), difference);
 	}

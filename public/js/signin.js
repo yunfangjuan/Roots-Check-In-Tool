@@ -77,13 +77,8 @@ renderLocationImage = function(eventLocation, eventActivity, eventCreator, focus
 function renderNextEvent(student) {
 	var currentEvent = getCurrentEvent(student);
 
-	/*
-		If there is no current event, either we have no grove calendar, in which case we wait until that data is passed in, or the grove calendar needs to reset, in which case we show the first grove calendar event.
-	*/
-	if (!currentEvent && _.isEmpty(student.groveCalendar) ) {
+	if (!currentEvent) {
 		return null;
-	} else if (!currentEvent && !_.isEmpty(student.groveCalendar) ) {
-		currentEvent = student.groveCalendar[0];
 	}
 
 	// Set data on window so it can be accessed in console for debugging purposes
@@ -94,8 +89,8 @@ function renderNextEvent(student) {
 	renderLocationImage( currentEvent.location,currentEvent.activity || currentEvent.summary, currentEvent.creator, currentEvent.focus_area );
 //renderLocationImage( currentEvent.location,currentEvent.summary, currentEvent.creator);
 	// Render the prograss bar with the start time, which we get off a google event or using startTimes for grove calender events
-	var start = moment( currentEvent.start ) || moment( Date.now() ).add( startTimes(), 'ms' );
-	renderProgressBar( start );
+	var start = moment(currentEvent.start); 
+	renderProgressBar(start);
 }
 
 /*
