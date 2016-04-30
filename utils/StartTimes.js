@@ -7,16 +7,16 @@ var moment = require('moment');
 
   Take in event and transition length as parameters so this method can be used in a uniform way on both client and server. 
   @params: DEPRECATED eventLength: event length in milliseconds
-  @params: transitionLength: also in milliseconds
+  @params: eventIncr: also in milliseconds
 */ 
-module.exports = function(eventLength, transitionLength) {
+module.exports = function(eventLength, eventIncr) {
 	var currentTime = moment(Date.now());
-  //if transitionLength = 5 minutes. intervals = 13
-	var intervals = 60 / (transitionLength / (60 * 1000)) + 1; 
+  //if eventIncr = 5 minutes. intervals = 13
+	var intervals = 60 / (eventIncr / (60 * 1000)) + 1; 
 	var start_times = [];
 	for (var i = 0; i < intervals; i++) {
 		// Remember to use new moment object here for each iteration so as not to override currentTime
-		start_times.push(currentTime.startOf('hour').add(i * transitionLength, 'ms'));
+		start_times.push(currentTime.startOf('hour').add(i * eventIncr, 'ms'));
 	}
 
 	// We return the next event start time based on transition length
@@ -25,7 +25,7 @@ module.exports = function(eventLength, transitionLength) {
   //                   8:57, the eventStart will be 9:00
   //                   8:03,                        8:05
 	var eventStart = _.find(start_times, function(t) {
-		return currentTime.isBetween(t, moment(t).add(transitionLength, 'ms'));
+		return currentTime.isBetween(t, moment(t).add(eventIncr, 'ms'));
 	});
 
 	return eventStart;

@@ -8,7 +8,7 @@ var startTimes = require('./StartTimes');
 
 	@params student: The student info
 */
-module.exports = function(student, eventLength, transitionLength) {
+module.exports = function(student, eventLength, transitionLength, eventIncr) {
   var currentTime = moment(Date.now());
 	// First check if there is a "current" google calendar event, and return it if so
 	var currentEvent = _.find(student.calendar, function(event) {
@@ -44,7 +44,17 @@ module.exports = function(student, eventLength, transitionLength) {
       // setting time to the next closet transitionLength increment 
       // For example, if transitionLenth is 5 min
       // 9:46 will generate 9:50 , 9:45 will generate 9:45, 9:36 will generate 9:40
-      currentEvent.start = startTimes(eventLength, transitionLength);
+      currentEvent.start = startTimes(eventLength, eventIncr);
+      //Make sure the event start time doesn't interface with the current event 
+      //This happens when we are in transitionlength. 
+      var nowEvent = _.find(student.calendar, function(event) {
+        return currentEvent.start.isBetween(event.start, event.end); 
+      });
+      if (nowEvent) {
+        currentEvent.start = nowEvent.end;
+      } else if (scan && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
+        currentEvent.start = moment(scan.event[0].end);
+      }
       currentEvent.end = currentEvent.start.add(eventLength, 'ms');
       // see if there's a google calendar event happening with the grove event
       var nextCalendarEvent = _.find(student.calendar, function(event) {

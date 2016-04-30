@@ -6,7 +6,7 @@ require('jquery.countdown');
 
 // Utils, bound to correct values for event and transition length
 var startTimes = _.partial( require('../../utils/StartTimes'), EVENT_LENGTH, TRANSITION_LENGTH);
-var getCurrentEvent = _.partialRight( require('../../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH );
+var getCurrentEvent = _.partialRight( require('../../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH, EVENT_INCREMENT);
 
 // Renders the progress bar at the top of page, using the start time of the student's next (or current) event.
 renderProgressBar = function(eventStart){

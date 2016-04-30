@@ -6,14 +6,16 @@ var User = require('../models/user');
 
 
 // Globals, using process.env (set in minutes) with some default values
-var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 5;
+var TRANSITION_LENGTH = Number(process.env.TRANSITION_LENGTH) || 6;
 TRANSITION_LENGTH = TRANSITION_LENGTH * 60 * 1000;
 var EVENT_LENGTH = Number(process.env.EVENT_LENGTH) || 15;
 EVENT_LENGTH = EVENT_LENGTH * 60 * 1000;
+var EVENT_INCREMENT = Number(process.env.EVENT_INCREMENT) || 5;
+EVENT_INCREMENT = EVENT_INCREMENT * 60 * 1000;
 
 // Utils, bound to correct values for event and transition length
 var startTimes = _.partial( require('../utils/StartTimes'), EVENT_LENGTH, TRANSITION_LENGTH ); 
-var getCurrentEvent = _.partialRight( require('../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH );
+var getCurrentEvent = _.partialRight( require('../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH, EVENT_INCREMENT);
 
 /*
 	Currently not using this implementation, but keeping this around if we want to switch back. This waits until the event is over before checking a student in. 
