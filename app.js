@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.locals.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyAY-0UEcPWe5JRn0cm3ZacDvwW1T-Awr7E';
-app.locals.GOOGLE_SIGNIN_CLIENT_ID = process.env.SIGNIN_CLIENT_ID || '384296996745-v29h5e9pped8an8imqdglkhevt9peafg.apps.googleusercontent.com';
+app.locals.GOOGLE_SIGNIN_CLIENT_ID = process.env.GOOGLE_SIGNIN_CLIENT_ID || '384296996745-v29h5e9pped8an8imqdglkhevt9peafg.apps.googleusercontent.com';
 app.locals.SCAN_CALLBACK_URL = process.env.SCAN_CALLBACK_URL || 'https%3A%2F%2Froots-elementary.herokuapp.com';
 
 
