@@ -40,28 +40,35 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
        _.each(student.groveCalendar, function(event) { event.checkedIn = false; });
        currentEvent = student.groveCalendar[0];
     }
+
     if (currentEvent) {
+      //Grove calendar.
       // setting time to the next closet transitionLength increment 
       // For example, if transitionLenth is 5 min
       // 9:46 will generate 9:50 , 9:45 will generate 9:45, 9:36 will generate 9:40
       currentEvent.start = startTimes(eventLength, eventIncr);
       //Make sure the event start time doesn't interface with the current event 
-      //This happens when we are in transitionlength. 
+      //This happens when we are in transitionlength. add eventIncr padding 
+      //in case students walk slowly to the next event.
       var nowEvent = _.find(student.calendar, function(event) {
-        return currentEvent.start.isBetween(event.start, event.end); 
+        return currentEvent.start.isBetween(event.start, event.end.add(eventIncr, 'ms')); 
       });
       if (nowEvent) {
         currentEvent.start = nowEvent.end;
-      } else if (scan && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
+      } else if (scan && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end).add(eventIncr, 'ms'))) {
         currentEvent.start = moment(scan.event[0].end);
       }
-      currentEvent.end = currentEvent.start.add(eventLength, 'ms');
-      // see if there's a google calendar event happening with the grove event
+      // Find the next google calendar event happening with the grove event
       var nextCalendarEvent = _.find(student.calendar, function(event) {
-        return event.start.isBetween(currentEvent.start, currentEvent.end);
+        return event.start.isAfter(currentEvent.start);
       });
-      if (nextCalendarEvent) {
+      if (nextCalendarEvent && 
+          currentEvent.start.add(2*eventLength, 'ms').isAfter(nextCalendarEvent.start)) {
+        //next calendar event is within 30 minutes
         currentEvent.end = nextCalendarEvent.start;
+      } else {
+        //next calendar event is after 30 minutes. 
+        currentEvent.end = currentEvent.start.add(eventLength, 'ms');
       }
     }
     return currentEvent;
