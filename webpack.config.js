@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        /* StudentTracker: './public/js/lost-kids.js',
+         StudentTracker: './public/js/lost-kids.js',
         SignIn: './public/js/signin.js',
         GroveCalendar: './public/js/grove-calendar.js',
         bundle: [
@@ -17,7 +17,7 @@ module.exports = {
             "jquery-ui",
             "jquery.countdown",
             './public/css-load.js'
-        ] */
+        ] 
     },
     output: {
         path: './public/build',

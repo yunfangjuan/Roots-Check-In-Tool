@@ -169,7 +169,7 @@ signinCallback = function(authResult) {
 			
 			//add google id to scan href/link. that way when scan returns scanned_data we have the users id
       console.log("Scan back URL:" + SCAN_CALLBACK_URL);
-			$('#scan-button').attr('href', 'scan://scan?callback=' + SCAN_CALLBACK_URL + '/scanredirect/'+response.id);
+			$('#scan-button').attr('href', 'scan://scan?callback=' + '/scanredirect/'+response.id);
 
 			//get calendar events on signIn and send events/user to database in function above
 			$('.scan-button').show();
