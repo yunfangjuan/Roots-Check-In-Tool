@@ -29,7 +29,7 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
 		(b) In all other circumstances (we are transitioning out of the correctly scanned event, student hasn't scanned during this period, last scan was wrong), we always show the first event that has not yet been checked into, or null if all events have been checked into (up to the calling function to determine what to do if that is the case.) 
 	*/
 	var scan = student.recentCorrectScan;
-	if (scan && scan.event[0].start && currentTime.add(transitionLength, 'ms').isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
+	if (scan && scan.event[0] && scan.event[0].start && currentTime.add(transitionLength, 'ms').isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
 		// Return the correctly scanned into event
 		return scan.event[0];
 	} else {
@@ -52,21 +52,21 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
       //This happens when we are in transitionlength. add eventIncr padding 
       //in case students walk slowly to the next event.
       var nowEvent = _.find(student.calendar, function(event) {
-        return currentEvent.start.isBetween(event.start, event.end.add(eventIncr, 'ms')); 
+        return currentEvent.start.isBetween(moment(event.start), moment(event.end).add(eventIncr, 'ms')); 
       });
       if (nowEvent) {
-        currentEvent.start = nowEvent.end;
-      } else if (scan && scan.event[0].start && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end).add(eventIncr, 'ms'))) {
+        currentEvent.start = moment(nowEvent.end);
+      } else if (scan && scan.event[0] && scan.event[0].start && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end).add(eventIncr, 'ms'))) {
         currentEvent.start = moment(scan.event[0].end);
       }
       // Find the next google calendar event happening with the grove event
       var nextCalendarEvent = _.find(student.calendar, function(event) {
-        return event.start.isAfter(currentEvent.start);
+        return moment(event.start).isAfter(currentEvent.start);
       });
       if (nextCalendarEvent && 
-          currentEvent.start.add(2*eventLength, 'ms').isAfter(nextCalendarEvent.start)) {
+          currentEvent.start.add(2*eventLength, 'ms').isAfter(moment(nextCalendarEvent.start))) {
         //next calendar event is within 30 minutes
-        currentEvent.end = nextCalendarEvent.start;
+        currentEvent.end = moment(nextCalendarEvent.start);
       } else {
         //next calendar event is after 30 minutes. 
         currentEvent.end = currentEvent.start.add(eventLength, 'ms');
