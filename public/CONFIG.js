@@ -1,8 +1,13 @@
+// TODO: the following is horrible. it needs to be fixed so there are no global variables everywhere
 // Set the event length. 15 minutes * 60 seconds * 1000 ms. 
 window.EVENT_LENGTH = 15 * 60 * 1000;
 
 // Transition time between events. 5 minutes * 60s * 1000 ms.
 window.TRANSITION_LENGTH = 6 * 60 * 1000;
+
+// event start increment
+window.EVENT_INCREMENT = 5 * 60 * 1000; 
+
 
 // Images for the various locations
 // TODO:  add images for all locations, with keys that are the name of the location
