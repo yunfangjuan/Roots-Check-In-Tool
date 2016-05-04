@@ -16,8 +16,8 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
 		var end = moment( event.end ).subtract(transitionLength, 'ms' );
 		return currentTime.isBetween(start, end);
 	});
-  console.log("student:");
-  console.log(student);
+  //console.log("student:");
+  //console.log(student);
 
 	if (currentEvent) {
 		return currentEvent;
@@ -45,13 +45,9 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
 
     if (currentEvent) {
       //Grove calendar.
-      // setting time to the next closet transitionLength increment 
-      // For example, if transitionLenth is 5 min
-      // 9:46 will generate 9:50 , 9:45 will generate 9:45, 9:36 will generate 9:40
-      //currentEvent.start = startTimes(eventLength, eventIncr);
+      //currentEvent.start = startTimes(eventLength, eventIncr); //Revisit this later. 
       currentEvent.start = currentTime.startOf('minute');
       console.log("Getting grove calendar. setting event time start:" + currentEvent.start);
-      console.log(currentEvent.start);
       //Make sure the event start time doesn't interface with the current event 
       //This happens when we are in transitionlength. add eventIncr padding 
       //in case students walk slowly to the next event.
@@ -75,6 +71,8 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
         //next calendar event is after 30 minutes. 
         currentEvent.end = currentEvent.start.add(eventLength, 'ms');
       }
+      console.log("Current Event:");
+      console.log(currentEvent.start);
     }
     return currentEvent;
 	}
