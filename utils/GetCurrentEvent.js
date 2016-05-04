@@ -29,7 +29,7 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
 		(b) In all other circumstances (we are transitioning out of the correctly scanned event, student hasn't scanned during this period, last scan was wrong), we always show the first event that has not yet been checked into, or null if all events have been checked into (up to the calling function to determine what to do if that is the case.) 
 	*/
 	var scan = student.recentCorrectScan;
-	if (scan && currentTime.add(transitionLength, 'ms').isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
+	if (scan && scan.event[0].start && currentTime.add(transitionLength, 'ms').isBetween(moment(scan.event[0].start), moment(scan.event[0].end))) {
 		// Return the correctly scanned into event
 		return scan.event[0];
 	} else {
@@ -49,7 +49,8 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
       // For example, if transitionLenth is 5 min
       // 9:46 will generate 9:50 , 9:45 will generate 9:45, 9:36 will generate 9:40
       currentEvent.start = startTimes(eventLength, eventIncr);
-      console.log("Getting grove calendar. setting event time");
+      console.log("Getting grove calendar. setting event time start:" + currentEvent.start);
+      console.log(currentEvent.start);
       //Make sure the event start time doesn't interface with the current event 
       //This happens when we are in transitionlength. add eventIncr padding 
       //in case students walk slowly to the next event.
@@ -58,7 +59,7 @@ module.exports = function(student, eventLength, transitionLength, eventIncr) {
       });
       if (nowEvent) {
         currentEvent.start = nowEvent.end;
-      } else if (scan && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end).add(eventIncr, 'ms'))) {
+      } else if (scan && scan.event[0].start && currentEvent.start.isBetween(moment(scan.event[0].start), moment(scan.event[0].end).add(eventIncr, 'ms'))) {
         currentEvent.start = moment(scan.event[0].end);
       }
       // Find the next google calendar event happening with the grove event
