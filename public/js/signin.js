@@ -7,7 +7,7 @@ require('jquery.countdown');
 // Utils, bound to correct values for event and transition length
 var startTimes = _.partial( require('../../utils/StartTimes'), EVENT_LENGTH, TRANSITION_LENGTH);
 var getCurrentEvent = _.partialRight( require('../../utils/GetCurrentEvent'), EVENT_LENGTH, TRANSITION_LENGTH, EVENT_INCREMENT);
-var SCAN_CALLBACK_URL = process.env.SCAN_CALLBACK_URL || 'https%3A%2F%2Froots-elementary.herokuapp.com';
+var SCAN_CALLBACK_URL = 'https%3A%2F%2F' + window.location.host
 // Renders the progress bar at the top of page, using the start time of the student's next (or current) event.
 renderProgressBar = function(eventStart){
 
@@ -169,7 +169,7 @@ signinCallback = function(authResult) {
 			
 			//add google id to scan href/link. that way when scan returns scanned_data we have the users id
       console.log("Scan back URL:" + SCAN_CALLBACK_URL);
-			$('#scan-button').attr('href', 'scan://scan?callback=' + '/scanredirect/'+response.id);
+			$('#scan-button').attr('href', 'scan://scan?callback=' + SCAN_CALLBACK_URL + '/scanredirect/'+response.id);
 
 			//get calendar events on signIn and send events/user to database in function above
 			$('.scan-button').show();
