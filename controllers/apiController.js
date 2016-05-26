@@ -73,6 +73,7 @@ var apiController = {
 
 		var scanned_data = req.query.scanned_data.replace('+', ' ');
 		var googleId = req.params.id;
+    console.log("Scan Callbak got called");
 
 		if (scanned_data) {
 			User.findOne({googleId: googleId}, function(err, user) {
